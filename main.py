@@ -1,25 +1,27 @@
 from sanic import Sanic
-from sanic.views import HTTPMethodView
 from sanic.response import text
+from sanic.response import file
+
+from sanic.views import HTTPMethodView
 
 app = Sanic('some_name')
 
 students = []
 
 
-@app.route("/x/<data>", methods=['POST'])
-def x(request, data):
-    students.append(data)
-    return text(data)
+@app.route("/users/add", methods=['POST'])
+def x(request):
+    students = request.body
 
-@app.route("/x")
+
+@app.route("/users/add", methods=['GET'])
+def add_users(request):
+    return file('./index.htm')
+
+
+@app.route("/users")
 def y(request):
-    s = ""
-    for a in students:
-        s += a + '\n'
-    return text(a)
-
-
+    return text(students[0])
 
 
 
