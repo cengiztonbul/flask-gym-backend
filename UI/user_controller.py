@@ -5,11 +5,11 @@ from Data.User import User
 from sanic.response import text
 
 
-def add_users(request):
+def add_users_get(request):
     return file('./add_user.htm')
 
 
-def x(request):
+def add_user_post(request):
     user = User()
     user.fname = request.form.get('fname')
     user.lname = request.form.get('lname')
@@ -18,5 +18,5 @@ def x(request):
 
 
 def add_routes(app):
-    app.add_route(x, "/users/add", methods=['POST'])
-    app.add_route(add_users, "/users/add", methods=['GET'])
+    app.add_route(add_user_post, "/users/add", methods=['POST'])
+    app.add_route(add_users_get, "/users/add", methods=['GET'])
