@@ -1,0 +1,22 @@
+from sanic import Sanic
+from sanic.response import file
+from Business import user_manager as um
+from Data.User import User
+from sanic.response import text
+
+
+def add_users(request):
+    return file('./add_user.htm')
+
+
+def x(request):
+    user = User()
+    user.fname = request.form.get('fname')
+    user.lname = request.form.get('lname')
+    um.add_user(user)
+    return text("Success")
+
+
+def add_routes(app):
+    app.add_route(x, "/users/add", methods=['POST'])
+    app.add_route(add_users, "/users/add", methods=['GET'])
