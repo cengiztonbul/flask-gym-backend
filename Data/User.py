@@ -6,6 +6,6 @@ instance = Instance(Context.get_db().test_database)
 
 
 @instance.register
-class User(Document):
+class Users(Document):
     lname = StringField(required=True)
     fname = StringField(required=True)

@@ -1,7 +1,6 @@
-from sanic import Sanic
 from sanic.response import file
 from Business import user_manager as um
-from Data.User import User
+from Data.User import Users
 from sanic.response import text
 
 
@@ -10,7 +9,7 @@ def add_users_get(request):
 
 
 def add_user_post(request):
-    user = User()
+    user = Users()
     user.fname = request.form.get('fname')
     user.lname = request.form.get('lname')
     um.add_user(user)
