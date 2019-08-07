@@ -1,12 +1,8 @@
 from umongo import Instance, EmbeddedDocument, fields
 from Data import TTDbContext as Context
-from umongo import Document
+from umongo import EmbeddedDocument
 
-instance = Instance(Context.get_db().test_database)
-
-
-@instance.register
-class Workout(Document):
+class Workout(EmbeddedDocument):
     pass
     class Meta:
         abstract = True
