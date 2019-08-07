@@ -12,6 +12,7 @@ def add_user_post(request):
     user = Users()
     user.fname = request.form.get('fname')
     user.lname = request.form.get('lname')
+    user.workout = {"title": "testy"}
     um.add_user(user)
     return text("Success")
 

@@ -2,3 +2,4 @@ sanic
 pymongo
 umongo
 motor
+dnspython
