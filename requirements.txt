@@ -1,6 +1,5 @@
 sanic
 pymongo
-umongo
 motor
 dnspython
-motorengine
+mongoengine
