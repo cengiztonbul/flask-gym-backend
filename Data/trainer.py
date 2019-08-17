@@ -1,7 +1,7 @@
 from mongoengine import fields
 from mongoengine import Document
 
-from Data.User import User
+from Data.user import User
 
 
 class Trainer(Document):

@@ -1,5 +1,5 @@
 import mongoengine
-from Data.User import User
+from Data.user import User
 
 
 def global_init():
