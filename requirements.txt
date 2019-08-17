@@ -3,3 +3,4 @@ pymongo
 umongo
 motor
 dnspython
+motorengine

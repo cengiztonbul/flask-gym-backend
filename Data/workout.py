@@ -1,8 +1,8 @@
-from umongo import Instance, EmbeddedDocument, fields
-from Data import TTDbContext as Context
-from umongo import EmbeddedDocument
+from motorengine import fields
+from motorengine import Document
 
-class Workout(EmbeddedDocument):
-    pass
-    class Meta:
-        abstract = True
+
+class Workout(Document):
+    name = fields.StringField()
+    days = fields.ListField(fields.ObjectIdField)
+

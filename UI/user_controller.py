@@ -1,6 +1,4 @@
 from sanic.response import file
-from Business import user_manager as um
-from Data.User import Users
 from sanic.response import text
 
 
@@ -8,15 +6,10 @@ def add_users_get(request):
     return file('./add_user.htm')
 
 
-def add_user_post(request):
-    user = Users()
-    user.fname = request.form.get('fname')
-    user.lname = request.form.get('lname')
-    user.workout = {"title": "testy"}
-    um.add_user(user)
-    return text("Success")
+def add_users_post(request):
+    return text("Not implemented yet")
 
 
 def add_routes(app):
-    app.add_route(add_user_post, "/users/add", methods=['POST'])
-    app.add_route(add_users_get, "/users/add", methods=['GET'])
+    app.add_route(add_users_post, "/users/add", methods=['POST'])
+    app.add_route(add_users_get, "/use  rs/add", methods=['GET'])
