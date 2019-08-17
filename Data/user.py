@@ -7,3 +7,4 @@ class User(Document):
     last_name = fields.StringField(required=True)
     email = fields.EmailField(required=True, unique=True)
     role_id = fields.ObjectIdField(required=True)
+    password = fields.StringField(required=True)
