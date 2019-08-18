@@ -1,6 +1,6 @@
-from sanic.response import file
-from sanic.response import text
 from sanic import Sanic
+from sanic.response import file, text
+
 from Business import user_manager
 
 
@@ -22,6 +22,21 @@ def add_users_post(request):
     return text("success")
 
 
+def login_get(request):
+    return file('./fitnesszone-html/login.html')
+
+
+def login_post(request):
+    email = request.form.get('user')
+    pwd = request.form.get('pwd')
+    try:
+        user_manager.login(email=email, pwd=pwd)
+    except Exception as e:
+        return text(str(e))
+
+
 def add_routes(app: Sanic):
     app.add_route(add_users_post, "/users/add", methods=['POST'])
     app.add_route(add_users_get, "/users/add", methods=['GET'])
+    app.add_route(login_post, "/login", methods=['POST'])
+    app.add_route(login_get, "/login", methods=['GET'])
