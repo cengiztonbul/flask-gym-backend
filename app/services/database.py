@@ -5,9 +5,7 @@ from app.models.user import User
 
 def init_db():
     # TODO add that to .env
-    db_connection_str = """
-    mongodb+srv://furkana:E8aHuJOUvtrrIBeb@cluster0-e1ggm.mongodb.net/test?retryWrites=true&w=majority
-    """
+    db_connection_str = """mongodb+srv://furkana:E8aHuJOUvtrrIBeb@cluster0-e1ggm.mongodb.net/test?retryWrites=true&w=majority"""
     return mongoengine.connect(host=db_connection_str)
 
 

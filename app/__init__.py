@@ -7,5 +7,7 @@ def create_app():
     from .services import init_services
     init_services()
 
+    from .views import init_views
+    init_views(app)
 
     return app
