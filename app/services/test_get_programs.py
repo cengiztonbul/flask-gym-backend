@@ -6,7 +6,7 @@ def test_get_workout():
 
 
 def test_get_diet():
-    return jsonify(diet_data)
+    return jsonify(diet)
 
 
 workout_data = {
@@ -79,94 +79,192 @@ workout_data = {
     ]
 }
 
-diet_data = {
-    "diet":
+diet = [
     [
-        [ # day 1
-            [ # meal 1
-                {
-                    "name": "test_food_0",
-                    "cal" : "test_cal_0",
-                    "ingredients":
-                    [
-                        "yağ",
-                    ]
-                },
-                {
-                    "name": "test_food_1",
-                    "cal" : "test_cal_1",
-                    "ingredients":
-                    [
-                        "karbonhidrat",
-                    ]
-                },
-                {
-                    "name": "test_food_2",
-                    "cal" : "test_cal_2",
-                    "ingredients":
-                    [
-                        "protein",
-                    ]
-                }
-            ],
-            [ # meal 1
-                {
-                    "name": "test_food_0",
-                    "cal" : "test_cal_0",
-                    "ingredients":
-                    [
-                        "yağ",
-                    ]
-                },
-                {
-                    "name": "test_food_1",
-                    "cal" : "test_cal_1",
-                    "ingredients":
-                    [
-                        "karbonhidrat",
-                    ]
-                },
-                {
-                    "name": "test_food_2",
-                    "cal" : "test_cal_2",
-                    "ingredients":
-                    [
-                        "protein",
-                    ]
-                }
-            ]
+        {  # meal 1
+            "name": "meal_0",
+            "food_list":
+                [
+                    {
+                        "name": "test_food_3",
+                        "cal": "test_cal_3",
+                        "ingredients":
+                            [
+                                "protein",
+                            ]
+                    },
+                    {
+                        "name": "test_food_4",
+                        "cal": "test_cal_4",
+                        "ingredients":
+                            [
+                                "yağ",
+                            ]
+                    },
+                    {
+                        "name": "test_food_5",
+                        "cal": "test_cal_5",
+                        "ingredients":
+                            [
+                                "protein",
+                            ]
+                    }
+                ]
+        },
+        {  # meal 1
+            "name": "meal_1",
+            "food_list":
+                [
+                    {
+                        "name": "test_food_3",
+                        "cal": "test_cal_3",
+                        "ingredients":
+                            [
+                                "protein",
+                            ]
+                    },
+                    {
+                        "name": "test_food_4",
+                        "cal": "test_cal_4",
+                        "ingredients":
+                            [
+                                "yağ",
+                            ]
+                    },
+                    {
+                        "name": "test_food_5",
+                        "cal": "test_cal_5",
+                        "ingredients":
+                            [
+                                "protein",
+                            ]
+                    }
+                ]
+        },
+        {  # meal 1
+            "name": "meal_2",
+            "food_list":
+                [
+                    {
+                        "name": "test_food_3",
+                        "cal": "test_cal_3",
+                        "ingredients":
+                            [
+                                "protein",
+                            ]
+                    },
+                    {
+                        "name": "test_food_4",
+                        "cal": "test_cal_4",
+                        "ingredients":
+                            [
+                                "yağ",
+                            ]
+                    },
+                    {
+                        "name": "test_food_5",
+                        "cal": "test_cal_5",
+                        "ingredients":
+                            [
+                                "yağ",
+                            ]
+                    }
+                ]
+        }
 
-        ],
-        [
-            [ # meal 1
-                {
-                    "name": "test_food_3",
-                    "cal" : "test_cal_3",
-                    "ingredients":
-                    [
-                        "protein",
-                    ]
-                },
-                {
-                    "name": "test_food_4",
-                    "cal" : "test_cal_4",
-                    "ingredients":
-                    [
-                        "yağ",
-                    ]
-                },
-                {
-                    "name": "test_food_5",
-                    "cal" : "test_cal_5",
-                    "ingredients":
-                    [
-                        "protein",
-                    ]
-                }
-            ]
-        ]
+    ],
+    [
+        {  # meal 1
+            "name": "meal_0",
+            "food_list":
+                [
+                    {
+                        "name": "test_food_13",
+                        "cal": "test_cal_13",
+                        "ingredients":
+                            [
+                                "protein",
+                            ]
+                    },
+                    {
+                        "name": "test_food_14",
+                        "cal": "test_cal_4",
+                        "ingredients":
+                            [
+                                "yağ",
+                            ]
+                    },
+                    {
+                        "name": "test_food_5",
+                        "cal": "test_cal_5",
+                        "ingredients":
+                            [
+                                "protein",
+                            ]
+                    }
+                ]
+        },
+        {  # meal 1
+            "name": "meal_1",
+            "food_list":
+                [
+                    {
+                        "name": "test_food_3",
+                        "cal": "test_cal_3",
+                        "ingredients":
+                            [
+                                "protein",
+                            ]
+                    },
+                    {
+                        "name": "test_food_4",
+                        "cal": "test_cal_4",
+                        "ingredients":
+                            [
+                                "yağ",
+                            ]
+                    },
+                    {
+                        "name": "test_food_5",
+                        "cal": "test_cal_5",
+                        "ingredients":
+                            [
+                                "protein",
+                            ]
+                    }
+                ]
+        },
+        {  # meal 1
+            "name": "meal_1",
+            "food_list":
+                [
+                    {
+                        "name": "test_food_3",
+                        "cal": "test_cal_3",
+                        "ingredients":
+                            [
+                                "protein",
+                            ]
+                    },
+                    {
+                        "name": "test_food_4",
+                        "cal": "test_cal_4",
+                        "ingredients":
+                            [
+                                "yağ",
+                            ]
+                    },
+                    {
+                        "name": "test_food_5",
+                        "cal": "test_cal_5",
+                        "ingredients":
+                            [
+                                "protein",
+                            ]
+                    }
+                ]
+        }
 
     ]
-}
 
-
+]
