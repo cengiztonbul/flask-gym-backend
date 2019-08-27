@@ -113,9 +113,15 @@ $jq("#post-button").live("click", function () {
 
     }
     )
-    console.log(days);
+    post_workout(days);
 
 });
+
+
+function post_workout(workout)
+{
+    console.log(workout);
+}
 
 
 function table_to_json(table) {
