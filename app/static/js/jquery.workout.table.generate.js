@@ -7,7 +7,7 @@ $jq(document).ready(function ($) {
 $jq("#workout-button").click(function () {
     console.log($jq("#table-title").html());
     $jq("#table-title").html("ÇALIŞMA PROGRAMI");
-    $jq.get("/get_test_data", function(data) 
+    $jq.get("/test/workout_data", function(data)
     {
         console.log(data);
             fill_workout(data);

@@ -3,16 +3,16 @@ from ..services.test_get_programs import test_get_workout, test_get_diet
 
 
 def test_profile_view(app):
-    @app.route('/test')
-    def x():
+    @app.route('/test/profile')
+    def page():
         return render_template("/view_programs.html")
 
 
 def test_data_routes(app):
     @app.route('/test/workout_data')
-    def y():
+    def workout_data():
         return test_get_workout()
 
     @app.route('/test/diet_data')
-    def a():
+    def diet_data():
         return test_get_diet()

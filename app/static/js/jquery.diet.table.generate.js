@@ -1,97 +1,197 @@
-var y = 
-{
-    "diet": 
+diet =
     [
-        [ // day 1
-            [ // meal 1
-                {
-                    "name": "test_food_0",
-                    "cal" : "test_cal_0",
-                    "ingredients":
+        [
+            { // meal 1
+                "name": "meal_0",
+                "food_list":
                     [
-                        "yağ",
+                        {
+                            "name": "test_food_3",
+                            "cal": "test_cal_3",
+                            "ingredients":
+                                [
+                                    "protein",
+                                ]
+                        },
+                        {
+                            "name": "test_food_4",
+                            "cal": "test_cal_4",
+                            "ingredients":
+                                [
+                                    "yağ",
+                                ]
+                        },
+                        {
+                            "name": "test_food_5",
+                            "cal": "test_cal_5",
+                            "ingredients":
+                                [
+                                    "protein",
+                                ]
+                        }
                     ]
-                },
-                {
-                    "name": "test_food_1",
-                    "cal" : "test_cal_1",
-                    "ingredients":
+            },
+            { // meal 1
+                "name": "meal_1",
+                "food_list":
                     [
-                        "karbonhidrat",
+                        {
+                            "name": "test_food_3",
+                            "cal": "test_cal_3",
+                            "ingredients":
+                                [
+                                    "protein",
+                                ]
+                        },
+                        {
+                            "name": "test_food_4",
+                            "cal": "test_cal_4",
+                            "ingredients":
+                                [
+                                    "yağ",
+                                ]
+                        },
+                        {
+                            "name": "test_food_5",
+                            "cal": "test_cal_5",
+                            "ingredients":
+                                [
+                                    "protein",
+                                ]
+                        }
                     ]
-                },
-                {
-                    "name": "test_food_2",
-                    "cal" : "test_cal_2",
-                    "ingredients":
+            },
+            { // meal 1
+                "name": "meal_2",
+                "food_list":
                     [
-                        "protein",
+                        {
+                            "name": "test_food_3",
+                            "cal": "test_cal_3",
+                            "ingredients":
+                                [
+                                    "protein",
+                                ]
+                        },
+                        {
+                            "name": "test_food_4",
+                            "cal": "test_cal_4",
+                            "ingredients":
+                                [
+                                    "yağ",
+                                ]
+                        },
+                        {
+                            "name": "test_food_5",
+                            "cal": "test_cal_5",
+                            "ingredients":
+                                [
+                                    "yağ",
+                                ]
+                        }
                     ]
-                }
-            ],
-            [ // meal 1
-                {
-                    "name": "test_food_0",
-                    "cal" : "test_cal_0",
-                    "ingredients":
-                    [
-                        "yağ",
-                    ]
-                },
-                {
-                    "name": "test_food_1",
-                    "cal" : "test_cal_1",
-                    "ingredients":
-                    [
-                        "karbonhidrat",
-                    ]
-                },
-                {
-                    "name": "test_food_2",
-                    "cal" : "test_cal_2",
-                    "ingredients":
-                    [
-                        "protein",
-                    ]
-                }
-            ]
+            }
 
         ],
         [
-            [ // meal 1
-                {
-                    "name": "test_food_3",
-                    "cal" : "test_cal_3",
-                    "ingredients":
+            { // meal 1
+                "name": "meal_0",
+                "food_list":
                     [
-                        "protein",
+                        {
+                            "name": "test_food_13",
+                            "cal": "test_cal_13",
+                            "ingredients":
+                                [
+                                    "protein",
+                                ]
+                        },
+                        {
+                            "name": "test_food_14",
+                            "cal": "test_cal_4",
+                            "ingredients":
+                                [
+                                    "yağ",
+                                ]
+                        },
+                        {
+                            "name": "test_food_5",
+                            "cal": "test_cal_5",
+                            "ingredients":
+                                [
+                                    "protein",
+                                ]
+                        }
                     ]
-                },
-                {
-                    "name": "test_food_4",
-                    "cal" : "test_cal_4",
-                    "ingredients":
+            },
+            { // meal 1
+                "name": "meal_1",
+                "food_list":
                     [
-                        "yağ",
+                        {
+                            "name": "test_food_3",
+                            "cal": "test_cal_3",
+                            "ingredients":
+                                [
+                                    "protein",
+                                ]
+                        },
+                        {
+                            "name": "test_food_4",
+                            "cal": "test_cal_4",
+                            "ingredients":
+                                [
+                                    "yağ",
+                                ]
+                        },
+                        {
+                            "name": "test_food_5",
+                            "cal": "test_cal_5",
+                            "ingredients":
+                                [
+                                    "protein",
+                                ]
+                        }
                     ]
-                },
-                {
-                    "name": "test_food_5",
-                    "cal" : "test_cal_5",
-                    "ingredients":
+            },
+            { // meal 1
+                "name": "meal_1",
+                "food_list":
                     [
-                        "protein",
+                        {
+                            "name": "test_food_3",
+                            "cal": "test_cal_3",
+                            "ingredients":
+                                [
+                                    "protein",
+                                ]
+                        },
+                        {
+                            "name": "test_food_4",
+                            "cal": "test_cal_4",
+                            "ingredients":
+                                [
+                                    "yağ",
+                                ]
+                        },
+                        {
+                            "name": "test_food_5",
+                            "cal": "test_cal_5",
+                            "ingredients":
+                                [
+                                    "protein",
+                                ]
+                        }
                     ]
-                }
-            ]
+            }
+
         ]
-        
+
     ]
-}
 
 
-var diet_header_row = 
-`
+var diet_header_row =
+    `
     <thead>
         <tr>
             <th style="width:30%"> İSİM </th>
@@ -106,17 +206,19 @@ $jq = jQuery.noConflict()
 
 
 
-$jq("#diet-button").click(function()
-{
+$jq("#diet-button").click(function () {
     $jq("#table-title").html("DİYET PROGRAMI");
-    fill_diet(y);
+    $jq.get("/test/diet_data", function(data)
+    {
+        fill_diet(data);
+    });
+    // fill_diet(diet);
 });
 
 
-function create_diet_table_row(name, ingredients, cal)
-{
+function create_diet_table_row(name, ingredients, cal) {
     result =
-    `
+        `
     <tbody>
         <tr>
             <td> ${name} </td>
@@ -129,53 +231,47 @@ function create_diet_table_row(name, ingredients, cal)
 }
 
 
-function ingredients_to_string(ingredients)
-{
+function ingredients_to_string(ingredients) {
     var result = "";
-    
-    for(ingredient in ingredients)
-    {
-        result += ingredients[ingredient] + " "; // might be ingredients.name in the future 
+
+    for (ingredient in ingredients) {
+        result += ingredients[ingredient] + " "; // might be ingredients.name in the future
     }
 
     return result;
 }
 
 
-function meal_to_table(meal)
-{
+function meal_to_table(meal) {
+    console.log(meal);
     var result = "";
-    for(food in meal)
-    {
+    for (food in meal) {
         result += create_diet_table_row(meal[food].name, ingredients_to_string(meal[food].ingredients), meal[food].cal);
-        
+
     }
     return result;
 }
 
 
-function create_diet_day_table(day)
-{
+function create_diet_day_table(day) {
     var result = "<table>"
     result += diet_header_row
-    for(meal in day)
-    {
-        result += `<td colspan="3">${meal}</td>`
-        result += meal_to_table(day[meal]);
+    for (meal in day) {
+        console.log(day[meal]);
+        result += `<td colspan="3">${day[meal].name}</td>`
+        result += meal_to_table(day[meal].food_list);
     }
     result += "</table>"
 
     return result;
 }
 
-function fill_diet(diet)
-{
+function fill_diet(diet) {
     $jq(".workout-tables").html("");
-    for(day in diet.diet)
-    {
-        console.log(diet.diet[day]);
-        $jq(".workout-tables").append(create_diet_day_table(diet.diet[day]));
-        
+    for (day in diet) {
+        console.log(diet[day]);
+        $jq(".workout-tables").append(create_diet_day_table(diet[day]));
+
     }
 
 }

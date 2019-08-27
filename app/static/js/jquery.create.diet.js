@@ -66,7 +66,7 @@ function create_row() {
     <tbody>
         <tr>
             <td> ${create_options()} </td>
-            <td> ${`<input id="set" type="text" name="txtname" placeholder="PORSİYON" required="">`} </td>
+            <td> ${`<input id="portion" type="text" name="txtname" placeholder="PORSİYON" required="">`} </td>
             <td> ${`<a id="delete-button" class="dt-sc-button small danger bordered" data-hover="Delete"> <i class="fa fa-times-circle"> </i> Delete </a>`} </td>
         </tr>
     </tbody>
@@ -79,7 +79,7 @@ function meal_row() {
     var result =
         `    <tbody id="meal-row">
             <tr>
-                <td colspan="2"> ${`<input id="meal" type="text" name="txtname" placeholder="ÖĞÜN ADI" required="">`} </td>
+                <td colspan="2"> ${`<input id="meal_name" type="text" name="txtname" placeholder="ÖĞÜN ADI" required="">`} </td>
                 <td> ${`<a id="delete-button" class="dt-sc-button small danger bordered" data-hover="Delete"> <i class="fa fa-times-circle"> </i> Delete </a>`} </td>
             </tr>
         </tbody>`
@@ -121,19 +121,22 @@ $jq("#post-button").live("click", function () {
 
     $jq(".create-panel-table").each(function () {
         var day = []
-        var meal = []
+        var meal = null;
 
         $jq(this).find("tbody").each(function () {
+
             if ($jq(this).attr("id") != null && $jq(this).attr("id") == "meal-row") {
-                console.log("found a meal row");
-                if (meal.length != 0) {
+
+
+                if (meal != null && meal.food_list.length != 0) {
                     day.push(meal);
-                    meal = [];
                 }
+                meal = { "name": null, "food_list": [] };
+                meal.name = $jq(this).find("#meal_name").val();
+
             }
             else {
-                console.log("there is food here");
-                meal.push(table_to_json($jq(this)));
+                meal.food_list.push(table_to_json($jq(this)));
             }
         });
         day.push(meal);
@@ -147,6 +150,7 @@ $jq("#post-button").live("click", function () {
 
 
 function table_to_json(table) {
+    console.log(table.html());
     return { "food": table.find("option:selected").val(), "portion": table.find("#portion").val() };
 }
 
@@ -190,3 +194,38 @@ function table_to_json(table) {
         add exercise
         delete day
 */
+
+/**
+ *             { // meal 1
+                "name": "meal_1",
+                "food_list":
+                    [
+                        {
+                            "name": "test_food_3",
+                            "cal": "test_cal_3",
+                            "ingredients":
+                                [
+                                    "protein",
+                                ]
+                        },
+                        {
+                            "name": "test_food_4",
+                            "cal": "test_cal_4",
+                            "ingredients":
+                                [
+                                    "yağ",
+                                ]
+                        },
+                        {
+                            "name": "test_food_5",
+                            "cal": "test_cal_5",
+                            "ingredients":
+                                [
+                                    "protein",
+                                ]
+                        }
+                    ]
+            }
+
+ *
+ */
