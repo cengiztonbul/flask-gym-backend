@@ -19,27 +19,27 @@
     <![endif]-->
 
     <!-- **Favicon** -->
-    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link href="{{url_for('static',filename='images/favicon.ico')}}" rel="shortcut icon" type="image/x-icon"/>
 
     <!-- **CSS - stylesheets** -->
     <link id="default-css" href="{{url_for('static',filename='style.css')}}" rel="stylesheet" media="all"/>
-    <link id="shortcodes-css" href="../static/shortcodes.css" rel="stylesheet" media="all"/>
+    <link id="shortcodes-css" href="{{url_for('static',filename='shortcodes.css')}}" rel="stylesheet" media="all"/>
 
-    <link id="skin-css" href="skins/green/style.css" rel="stylesheet" media="all"/>
+    <link id="skin-css" href="{{url_for('static',filename='skins/green/style.css')}}" rel="stylesheet" media="all"/>
 
-    <link id="fancy-box" href="css/jquery.fancybox.css" rel="stylesheet" media="all"/>
-    <link id="layer-slider" href="css/layerslider.css" rel="stylesheet" media="all"/>
-    <link href="css/prettyPhoto.css" rel="stylesheet" media="all"/>
+    <link id="fancy-box" href="{{url_for('static',filename='css/jquery.fancybox.css')}}" rel="stylesheet" media="all"/>
+    <link id="layer-slider" href="{{url_for('static',filename='css/layerslider.css')}}" rel="stylesheet" media="all"/>
+    <link href="{{url_for('static',filename='css/prettyPhoto.css')}}" rel="stylesheet" media="all"/>
 
     <!-- **Additional - stylesheets** -->
-    <link href="css/responsive.css" rel="stylesheet" media="all"/>
-    <link href="css/pace-theme-loading-bar.css" rel="stylesheet" media="all"/>
+    <link href="{{url_for('static',filename='css/responsive.css')}}" rel="stylesheet" media="all"/>
+    <link href="{{url_for('static',filename='css/pace-theme-loading-bar.css')}}" rel="stylesheet" media="all"/>
 
-    <link href="css/animations.css" rel="stylesheet" media="all"/>
+    <link href="{{url_for('static',filename='css/animations.css')}}" rel="stylesheet" media="all"/>
 
     <!-- **Font Awesome** -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/flaticon.css')}}">
 
     <!-- **Google - Fonts** -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
@@ -49,11 +49,11 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
 
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static',filename='js/jquery.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename='js/jquery-migrate.min.js')}}"></script>
 
     <!-- **Modernizr** -->
-    <script src="js/modernizr.custom.js"></script>
+    <script src="{{url_for('static',filename='js/modernizr.custom.js')}}"></script>
     <script type="text/javascript">
         var mytheme_urls = {
             stickynav: 'enable'
@@ -80,9 +80,9 @@
                         </div>
                         <div class="top-right">
                             <ul>
-                                <li><a title="Login" href="login.html"><span class="fa fa-sign-in"></span>Member
+                                <li><a title="Login" href="login"><span class="fa fa-sign-in"></span>Member
                                     Login</a></li>
-                                <li><a title="Register Now" href="register.html"><span class="fa fa-user"></span>
+                                <li><a title="Register Now" href="register"><span class="fa fa-user"></span>
                                     Register </a></li>
                             </ul>
                         </div>
@@ -92,8 +92,8 @@
                 <div class="main-menu-container">
                     <div class="main-menu">
                         <div id="logo">
-                            <a title="Travel" href="index.html"><img title="Fitness" alt="Fitness"
-                                                                     src="images/logo.png"></a>
+                            <a title="Travel" href="index"><img title="Fitness" alt="Fitness"
+                                                                     src="{{url_for('static',filename='images/logo.png')}}"></a>
                         </div>
                         <div id="primary-menu">
                             <div class="dt-menu-toggle" id="dt-menu-toggle">Menu<span
@@ -101,7 +101,7 @@
                             <nav id="main-menu">
                                 <ul id="menu-main-menu" class="menu">
                                     <li class="current_page_item menu-item-simple-parent menu-item-depth-0"><a
-                                            href="index.html">Home</a>
+                                            href="index">Home</a>
                                         <ul class="sub-menu">
                                             <li class="current_page_item"><a href="indexv2.html">Home 2</a></li>
                                             <li><a href="indexv3.html">Home 3</a></li>
@@ -578,16 +578,16 @@
                 <div id="layerslider_5" class="ls-wp-container"
                      style="width:100%;height:655px;margin:0 auto;margin-bottom: 0px;">
                     <div class="ls-slide" data-ls="slidedelay:8000; transition2d: all;"><img
-                            src="images/sliders/blank.gif" data-src="http://placehold.it/1920x655&text=Slider1"
+                            src="{{url_for('static',filename='images/sliders/blank.gif')}}" data-src="http://placehold.it/1920x655&text=Slider1"
                             class="ls-bg" alt="Slide background"/><img class="ls-l"
                                                                        style="top:195px;left:455px;white-space: nowrap;"
                                                                        data-ls="offsetxin:0;durationin:1500;delayin:1000;rotatexin:30;rotateyin:30;transformoriginin:right 50% 0;"
-                                                                       src="images/sliders/blank.gif"
+                                                                       src="{{url_for('static',filename='images/sliders/blank.gif')}}"
                                                                        data-src="http://wedesignthemes.com/themes/dummy-super/wp-content/uploads/2014/12/enroll-text.png"
                                                                        alt=""><img class="ls-l"
                                                                                    style="top:245px;left:455px;white-space: nowrap;"
                                                                                    data-ls="delayin:1500;skewyin:30;"
-                                                                                   src="images/sliders/blank.gif"
+                                                                                   src="{{url_for('static',filename='images/sliders/blank.gif')}}"
                                                                                    data-src="http://wedesignthemes.com/themes/dummy-super/wp-content/uploads/2014/12/fitness-text.png"
                                                                                    alt="">
                         <div class="ls-l"
@@ -622,12 +622,12 @@
                         </div>
                     </div>
                     <div class="ls-slide" data-ls="slidedelay:7000; transition2d: all;"><img
-                            src="images/sliders/blank.gif" data-src="http://placehold.it/1920x655&text=Slider2"
+                            src="{{url_for('static',filename='images/sliders/blank.gif')}}" data-src="http://placehold.it/1920x655&text=Slider2"
                             class="ls-bg" alt="Slide background"/><img class="ls-l"
                                                                        style="top:1px;left:0px;white-space: nowrap;"
                                                                        data-ls="offsetxin:-300;durationin:2000;delayin:1000;"
-                                                                       src="images/sliders/blank.gif"
-                                                                       data-src="images/sliders/man.png" alt="">
+                                                                       src="{{url_for('static',filename='images/sliders/blank.gif')}}"
+                                                                       data-src="{{url_for('static',filename='images/sliders/man.png')}}" alt="">
                         <div class="ls-l" id="slider2-content5"
                              style="top:312px;left:875px;font-family: Roboto Condensed; font-size:20px; font-weight:300; color: #fff;"
                              data-ls="offsetxin:0;offsetyin:-200;durationin:2000;delayin:4000;offsetxout:0;"><span
@@ -681,12 +681,12 @@
                             </span></div>
                     </div>
                     <div class="ls-slide" data-ls="slidedelay:8000; transition2d: all;"><img
-                            src="images/sliders/blank.gif" data-src="http://placehold.it/1920x655&text=Slider3"
+                            src="{{url_for('static',filename='images/sliders/blank.gif')}}" data-src="http://placehold.it/1920x655&text=Slider3"
                             class="ls-bg" alt="Slide background"/><img class="ls-l"
                                                                        style="top:25px;left:-3px;white-space: nowrap;"
                                                                        data-ls="offsetxin:-200;offsetyin:400;durationin:2000;delayin:1000;rotateyin:60;scalexin:0.7;scaleyin:0.7;transformoriginin:center center 0;"
-                                                                       src="images/sliders/blank.gif"
-                                                                       data-src="images/sliders/guy-running.png" alt="">
+                                                                       src="{{url_for('static',filename='images/sliders/blank.gif')}}"
+                                                                       data-src="{{url_for('static',filename='images/sliders/guy-running.png')}}" alt="">
                         <h4 class="ls-l"
                             style="top:218px;left:616px;font-family:'Open Sans Condensed', sans-serif; font-size:54px; line-height:50px; text-transform:uppercase; font-weight:bold; color:#9bb70d; width:445px;"
                             data-ls="offsetxin:300;durationin:2000;delayin:2000;rotatexin:200;">Heck of a body like
@@ -698,7 +698,7 @@
                             start a Fitness Center or a Sports Website. Have a look and enjoy the Exclusive Features of
                             a Fitness Website.</h2>
                         <p class="ls-l"
-                           style="top:460px;left:616px;background-image:url(images/sliders/button-bg-medium.png); padding:13px 26px; font-family:'Open Sans Condensed', sans-serif; font-size:16px; background-repeat: no-repeat; background-color:#9bb70d; color: #ffffff; cursor: pointer; display: inline-block; font-weight: bold; line-height: normal; position: relative; text-transform: uppercase; z-index: 1;white-space: nowrap;"
+                           style="top:460px;left:616px;background-image:url({{url_for('static',filename='images/sliders/button-bg-medium.png')}}); padding:13px 26px; font-family:'Open Sans Condensed', sans-serif; font-size:16px; background-repeat: no-repeat; background-color:#9bb70d; color: #ffffff; cursor: pointer; display: inline-block; font-weight: bold; line-height: normal; position: relative; text-transform: uppercase; z-index: 1;white-space: nowrap;"
                            data-ls="offsetxin:-80;durationin:2000;delayin:4000;rotatein:270;"><a href="#"
                                                                                                  class="banner-link"
                                                                                                  style="color:#ffffff;">Enroll
@@ -1030,7 +1030,7 @@
                                 <div class="dt-sc-hr-invisible"></div>
                             </div>
                             <div class="dt-sc-one-half column animate" data-animation="fadeInRight" data-delay="100">
-                                <img src="images/mac.png" alt="" title="">
+                                <img src="{{url_for('static',filename='images/mac.png')}}" alt="" title="">
                             </div>
                         </div>
                     </div>
@@ -1256,19 +1256,19 @@
                                 <ul class='dt-sc-partner-carousel'>
                                     <li><a href="#" class="dt-sc-tooltip-top-carousel"
                                            title="The National Physical Activity Plan is a comprehensive set of policies, programs, and initiatives that aim to increase physical activity in all segments of the American population."><img
-                                            src="images/client1.png" alt="" title=""></a></li>
+                                            src="{{url_for('static',filename='images/client1.png')}}" alt="" title=""></a></li>
                                     <li><a href="#" class="dt-sc-tooltip-top-carousel"
                                            title="Donec tincidunt sed mauris ac convallis. Curabitur semper mauris vel nibh cursus, nec auctor orci dictum. Vivamus ac fermentum justo, eu tempus ligula."><img
-                                            src="images/client2.png" alt="" title=""></a></li>
+                                            src="{{url_for('static',filename='images/client2.png')}}" alt="" title=""></a></li>
                                     <li><a href="#" class="dt-sc-tooltip-top-carousel"
                                            title="Nam viverra nunc eu arcu consectetur, sit amet varius sapien interdum. Nulla vestibulum elit ipsum, in pharetra est aliquam ac, nibh cursus, nec auctor orci dictum."><img
-                                            src="images/client3.png" alt="" title=""></a></li>
+                                            src="{{url_for('static',filename='images/client3.png')}}" alt="" title=""></a></li>
                                     <li><a href="#" class="dt-sc-tooltip-top-carousel"
                                            title="Vestibulum feugiat lacus non libero posuere, at accumsan turpis finibus. Sed sit amet iaculis leo. Nulla facilisi. Praesent molestie dolor non erat luctus, eu pulvinar neque aliquet. Proin commodo lorem eu nulla lobortis aliquam."><img
-                                            src="images/client4.png" alt="" title=""></a></li>
+                                            src="{{url_for('static',filename='images/client4.png')}}" alt="" title=""></a></li>
                                     <li><a href="#" class="dt-sc-tooltip-top-carousel"
                                            title="Quisque consequat pulvinar erat, quis blandit libero feugiat vel. Suspendisse scelerisque mauris vitae maximus laoreet. Maecenas eget vehicula lectus."><img
-                                            src="images/client3.png" alt="" title=""></a></li>
+                                            src="{{url_for('static',filename='images/client3.png')}}" alt="" title=""></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1277,7 +1277,7 @@
                     <div class="fullwidth-section full-paralax4">
                         <div class="container">
                             <div class="dt-sc-one-half column first">
-                                <img src="images/women-with-iphone.png" alt="" title="">
+                                <img src="{{url_for('static',filename='images/women-with-iphone.png')}}" alt="" title="">
                             </div>
                             <div class="dt-sc-one-half column">
                                 <div class="dt-sc-hr-invisible"></div>
@@ -1491,25 +1491,26 @@
     </div><!-- **Inner Wrapper - End** -->
 </div><!-- **Wrapper - End** -->
 
+
 <!-- **jQuery** -->
-<script type="text/javascript" src="js/jquery.plugins.min.js"></script>
-<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.plugins.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.nicescroll.min.js')}}"></script>
 
-<script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
-<script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.fancybox.pack.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.carouFredSel-6.2.1-packed.js')}}"></script>
 
-<script type="text/javascript" src="js/pace.min.js"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/pace.min.js')}}"></script>
 
-<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" src="js/jquery.tipTip.minified.js"></script>
-<script type="text/javascript" src="js/jquery.tabs.min.js"></script>
-<script type="text/javascript" src="js/jquery.ui.totop.min.js"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.isotope.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.prettyPhoto.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.tipTip.minified.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.tabs.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.ui.totop.min.js')}}"></script>
 
-<script type="text/javascript" src="js/jquery-transit-modified.js"></script>
-<script type="text/javascript" src="js/layerslider.kreaturamedia.jquery.js"></script>
-<script type='text/javascript' src="js/greensock.js"></script>
-<script type='text/javascript' src="js/layerslider.transitions.js"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery-transit-modified.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/layerslider.kreaturamedia.jquery.js')}}"></script>
+<script type='text/javascript' src="{{url_for('static',filename='js/greensock.js')}}"></script>
+<script type='text/javascript' src="{{url_for('static',filename='js/layerslider.transitions.js')}}"></script>
 
 <script type="text/javascript">var lsjQuery = jQuery;</script>
 <script type="text/javascript"> lsjQuery(document).ready(function () {
@@ -1524,10 +1525,10 @@
     }
 }); </script>
 
-<script type="text/javascript" src="js/retina.js"></script>
-<script type="text/javascript" src="js/twitter/jquery.tweet.min.js"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/retina.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/twitter/jquery.tweet.min.js')}}"></script>
 
-<script type="text/javascript" src="js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.validate.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/custom.js')}}"></script>
 </body>
 </html>
