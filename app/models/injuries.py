@@ -1,7 +1,7 @@
-from mongoengine import Document
+from mongoengine import EmbeddedDocument
 from mongoengine import fields
 
 
-class Injuries(Document):
+class Injuries(EmbeddedDocument):
     name = fields.StringField()
     status = fields.BooleanField()
