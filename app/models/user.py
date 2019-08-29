@@ -8,9 +8,7 @@ import bson
 @login.user_loader
 def load_user(id):
     try:
-            u = User.objects(id=bson.objectid.ObjectId(id)).first()
-            x = 1
-            return u
+        return User.objects(id=bson.objectid.ObjectId(id)).first()
     except:
         return None
 
