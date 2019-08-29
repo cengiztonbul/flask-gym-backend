@@ -1,16 +1,35 @@
 from mongoengine import Document
 from mongoengine import fields
+from flask_login import UserMixin
 from app import login
+import bson
 
 
-class User(Document):
+@login.user_loader
+def load_user(id):
+    try:
+            u = User.objects(id=bson.objectid.ObjectId(id)).first()
+            x = 1
+            return u
+    except:
+        return None
+
+
+class User(Document, UserMixin):
     first_name = fields.StringField(required=True)
     last_name = fields.StringField(required=True)
     email = fields.EmailField(required=True, unique=True)
-    role_id = fields.ObjectIdField(required=False)  # TODO Fix this, for now required=false should also add default value
+    role_id = fields.StringField(required=False, default="user")
     password_hash = fields.StringField(required=True)
 
     def get_name_obj(self):
         return {"id": str(self.id), "first_name": self.first_name, "last_name": self.last_name}
 
+    def is_authenticated(self):
+        return True
 
+    def is_active(self):
+        return self.active
+
+    def is_anonymous(self):
+        return False
