@@ -6,8 +6,8 @@ def create_student(first_name, last_name, email):
     student = Student()
 
     # TODO: question whether role_id is required or not
-    role_id = None
-    student.user_id = create_user(first_name, last_name, email, role_id)
+    role = None
+    student.user_id = create_user(first_name, last_name, email, role)
 
     student.save()
 

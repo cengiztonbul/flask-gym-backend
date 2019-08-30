@@ -3,7 +3,8 @@ from flask import redirect, render_template, request, flash
 from app.models.user import User
 from app.services.user_manager import create_user
 from app.utils.forms import LoginForm, RegisterForm
-from flask_login import current_user, login_user, login_required, logout_user
+from flask_login import current_user, login_user, logout_user
+from ..utils.login_required_role import login_required
 
 
 def init_auth_views(app):
@@ -21,7 +22,7 @@ def init_auth_views(app):
             return render_template("login.html", form=form)
 
     @app.route('/register', methods=['GET', 'POST'])
-    @login_required
+    @login_required(["admin"])
     def register():
         form = RegisterForm()
         if form.validate_on_submit():
@@ -29,8 +30,17 @@ def init_auth_views(app):
             return "success"
         return render_template('register.html', form=form)
 
+    @app.route('/reg', methods=['GET', 'POST'])
+    @login_required("admin")
+    def reg():
+        form = RegisterForm()
+        if form.validate_on_submit():
+            create_user(form.first_name.data, form.last_name.data, form.email.data, "user")
+            return "success"
+        return render_template('register.html', form=form)
+
     @app.route("/logout")
-    @login_required
+    @login_required()
     def logout():
         logout_user()
         return redirect("/")

@@ -17,3 +17,7 @@ def init_view(app):
     @app.errorhandler(404)
     def not_found(error):
         return render_template('404.html', error=error)
+
+    @app.errorhandler(401)
+    def unauthorized(error):
+        return render_template('404.html', error=error)  # TODO change to a 401 page?

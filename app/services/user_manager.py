@@ -3,13 +3,13 @@ from passlib.hash import bcrypt_sha256
 DEFAULT_PASSWORD = "123456"
 
 
-def create_user(first_name, last_name, email, role_id="user"):
+def create_user(first_name, last_name, email, role="user"):
     user = User()
 
     user.first_name = first_name
     user.last_name = last_name
     user.email = email
-    user.role_id = role_id
+    user.role = role
     user.password_hash = bcrypt_sha256.hash(DEFAULT_PASSWORD)  # password_hash.hash_pwd(DEFAULT_PASSWORD)
 
     user.save()
