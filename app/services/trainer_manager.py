@@ -13,6 +13,7 @@ def student_json_list(trainer):
     print(trainer)
     users = []
     for s_id in trainer.student_ids:
+        print(s_id.user_id)
         users.append(s_id.user_id.get_name_obj())
 
     return json.dumps(users)  # id_list_to_json(user_ids)
@@ -32,3 +33,9 @@ def register_user(first_name, last_name, email, trainer_id):
     trainer.add_student(new_user)
 
 
+def get_workout_list(trainer):
+    e_list = []
+    trainer = Trainer.objects(user_id=trainer.id).get()
+    for workout_id in trainer.workout_ids:
+        e_list.append(workout_id.get_name_obj())
+    return json.dumps(e_list)
