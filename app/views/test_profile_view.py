@@ -21,3 +21,6 @@ def test_data_routes(app):
     def diet_data():
         return test_get_diet()
 
+    @app.route('/data/d')
+    def diet_data():
+        return test_get_diet()

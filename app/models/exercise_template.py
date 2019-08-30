@@ -8,3 +8,8 @@ class ExerciseTemplate(Document):
     img_url = fields.StringField()
     video_url = fields.StringField()
 
+    def to_dict(self):
+        return {
+            "name": self.name,
+            "id": str(self.id)
+        }

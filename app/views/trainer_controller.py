@@ -1,5 +1,5 @@
 from flask import render_template
-from ..services.trainer_manager import student_list_to_json, trainer_test, trainer_list, register_user
+from ..services.trainer_manager import student_json_list, trainer_test, trainer_list, register_user
 
 
 def list_student_view(app):
@@ -31,10 +31,6 @@ def list_student_view(app):
 
 
 def students_data(app):
-    @app.route('/test/student_list')
-    def student_data():
-        return student_list_to_json(trainer_test)
-
     @app.route('/test/trainer_list')
     def trainers():
         return trainer_list()
