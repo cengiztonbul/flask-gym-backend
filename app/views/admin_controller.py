@@ -1,10 +1,8 @@
 from flask import render_template
 from flask_login import login_required
 
-from app import login
 
-
-def admin_routes(app):
+def init_admin_routes(app):
     @app.route('/admin_panel')
     def admin_panel():
         return render_template("/admin_panel.html")
