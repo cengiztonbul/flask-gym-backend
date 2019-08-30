@@ -1,3 +1,4 @@
+from bson import ObjectId
 from mongoengine import fields
 from mongoengine import Document
 
@@ -8,6 +9,12 @@ from .exercise import Exercise
 class Workout(Document):
     name = fields.StringField()
     days = fields.ListField(fields.ListField(fields.EmbeddedDocumentField(Exercise)))
+
+    def get_name_obj(self):
+        return {
+            "name": self.name,
+            "id": str(self.id)
+        }
 
 
 def json_to_workout_obj(json_workout):
@@ -26,3 +33,11 @@ def json_to_workout_obj(json_workout):
 
     new_workout.save()
     return new_workout
+
+
+def find_workout_by_id(id_str: str):
+    return Workout.objects(id=ObjectId(id_str)).first()
+
+
+def find_workout_by_id(obj_id: ObjectId):
+    return Workout.objects(id=obj_id).first()

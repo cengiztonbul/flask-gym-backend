@@ -6,8 +6,8 @@ from flask_login import current_user
 
 from app import login
 from app.models.student import Student
-from app.models.workout import json_to_workout_obj
-from app.services.trainer_manager import student_json_list, trainer_list
+from app.models.workout import json_to_workout_obj, find_workout_by_id
+from app.services.trainer_manager import student_json_list, trainer_list, get_workout_list
 from ..services.data_manager import get_exercise_list
 
 
@@ -26,6 +26,13 @@ def admin_routes(app):
         data = request.json
         s = Student.objects(user_id=ObjectId(data["user_id"])).first()
         s.add_workout(json_to_workout_obj(data))
+        return "ok"
+
+    @app.route('/workout_by_id', methods=['POST'])
+    def add_workout_id_post():
+        data = request.json
+        s = Student.objects(user_id=ObjectId(data["user_id"])).first()
+        s.add_workout(find_workout_by_id(data["id"]))
         return "ok"
 
     @app.route('/students')
@@ -54,3 +61,6 @@ def admin_data_routes(app):
     def exercises_list():
         return get_exercise_list()
 
+    @app.route('/data/workouts')
+    def workout_list():
+        return get_workout_list(current_user)

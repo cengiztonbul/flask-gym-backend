@@ -43,19 +43,29 @@ function create_workout_day_table(id) {
 }
 
 $jq(document).ready(function()
-{    $jq.get("/data/exercises", function(data)
+{    
+    $jq.get("/data/exercises", function(data)
     {
         console.log(data);
         exercises = $jq.parseJSON(data)
     });
+    $jq.get("/data/workouts", function(data)
+    {
+        console.log(data);
+        workouts = $jq.parseJSON(data);
+        $jq("#hazir-programlar").append(create_options(workouts));
+    });
+    console.log(workouts)
+
 })
 
-function create_options() {
+function create_options(option_list) {
     var result = `<select name="cmbsubject" class="valid">`;
 
-    for (exercise in exercises) {
+    for (option in option_list) {
+        console.log(option_list[option] )
         result += `
-            <option value="${exercises[exercise].id}">${exercises[exercise].name}</option>
+            <option value="${option_list[option].id}">${option_list[option].name}</option>
         `; 
     }
 
@@ -69,7 +79,7 @@ function create_row() {
     result = `
     <tbody>
         <tr>
-            <td> ${create_options()} </td>
+            <td> ${create_options(exercises)} </td>
             <td> ${`<input id="set" type="text" name="txtname" placeholder="SET" required="">`} </td>
             <td> ${`<input id="reps" type="text" name="txtname" placeholder="TEKRAR" required="">`} </td>
             <td> ${`<a id="delete-button" class="dt-sc-button small danger bordered" data-hover="Delete"> <i class="fa fa-times-circle"> </i> Delete </a>`} </td>
@@ -85,6 +95,13 @@ $jq("#delete-button").live("click", function () {
     $jq(this).parent().parent().parent().remove();
 });
 
+$jq("#hazir-p-button").live("click", function () {
+    var data = {"user_id": getUrlParameter("user_id"), "id": $jq("#hazir-programlar").find("option:selected").val() };
+    $jq.fn.postJSON("/workout_by_id", JSON.stringify(data));
+
+});
+
+
 
 $jq(".add-exercise-button").live("click", function () {
     $jq("#" + $jq(this).attr("id") + ".create-panel-table").append(create_row());
@@ -93,6 +110,10 @@ $jq(".add-exercise-button").live("click", function () {
 var id = 0;
 
 $jq(".add-day-button").live("click", function () {
+    if($jq("#hazir-programlar") != null)
+    {
+        $jq("#hazir-programlar").remove();
+    }
     id += 1;
     $jq(".workout-tables").append(create_workout_day_table(id));
 });
@@ -153,3 +174,4 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
 };
+
