@@ -1,3 +1,6 @@
+passlib
 mongoengine
 flask
 dnspython
+flask_wtf
+flask-login

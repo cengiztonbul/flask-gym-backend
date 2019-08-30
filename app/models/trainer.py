@@ -1,10 +1,14 @@
 from mongoengine import fields
 from mongoengine import Document
 
-from Data.user import User
+from ..models.user import User
+from ..models.student import Student
 
 
 class Trainer(Document):
     user_id = fields.ReferenceField(User)
+    student_ids = fields.ListField(fields.ReferenceField(Student))
 
-    students_ids = fields.ListField(fields.ObjectIdField)
+    def add_student(self, student_id):
+        self.student_ids.append(student_id)
+        self.save()

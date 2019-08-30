@@ -7,6 +7,10 @@ def test_profile_view(app):
     def page():
         return render_template("/view_programs.html")
 
+    @app.route('/test/create_workout')
+    def page_2():
+        return render_template("/create_workout.html")
+
 
 def test_data_routes(app):
     @app.route('/test/workout_data')
@@ -16,3 +20,4 @@ def test_data_routes(app):
     @app.route('/test/diet_data')
     def diet_data():
         return test_get_diet()
+
