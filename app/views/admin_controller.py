@@ -45,6 +45,11 @@ def admin_routes(app):
     def edit_student():
         return render_template("/edit_profile.html")
 
+    @app.route('/create_exercise')
+    @login_required(['admin'])
+    def create_exercise():
+        pass
+
 
 def admin_data_routes(app):
     @app.route('/student_list')
@@ -52,7 +57,7 @@ def admin_data_routes(app):
     def students():
         return student_json_list(current_user)
 
-    @app.route('/test/trainer_list')
+    @app.route('/data/trainer_list')
     @login_required(['admin'])
     def trainers():
         return trainer_list()
