@@ -15,5 +15,8 @@ def init_views(app):
     list_student_view(app)
     students_data(app)
 
+    from app.views.user_views import init_user_views
+    init_user_views(app)
+
     from app.views.admin_controller import init_admin_routes
     init_admin_routes(app)

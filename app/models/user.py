@@ -23,12 +23,3 @@ class User(Document, UserMixin):
 
     def get_name_obj(self):
         return {"id": str(self.id), "first_name": self.first_name, "last_name": self.last_name}
-
-    def is_authenticated(self):
-        return True
-
-    def is_active(self):
-        return self.active
-
-    def is_anonymous(self):
-        return False
