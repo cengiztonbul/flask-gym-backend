@@ -25,17 +25,3 @@ def trainer_list():
         trainers.append(trainer.user_id.get_name_obj())
 
     return json.dumps(trainers)
-
-
-def register_user(first_name, last_name, email, trainer_id):
-    new_user = create_user(first_name, last_name, email)
-    trainer = Trainer.objects(id=trainer_id).get()
-    trainer.add_student(new_user)
-
-
-def get_workout_list(trainer):
-    e_list = []
-    trainer = Trainer.objects(user_id=trainer.id).get()
-    for workout_id in trainer.workout_ids:
-        e_list.append(workout_id.get_name_obj())
-    return json.dumps(e_list)

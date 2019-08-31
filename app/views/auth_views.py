@@ -30,15 +30,6 @@ def init_auth_views(app):
             return "success"
         return render_template('register.html', form=form)
 
-    @app.route('/reg', methods=['GET', 'POST'])
-    @login_required("admin")
-    def reg():
-        form = RegisterForm()
-        if form.validate_on_submit():
-            create_user(form.first_name.data, form.last_name.data, form.email.data, "user")
-            return "success"
-        return render_template('register.html', form=form)
-
     @app.route("/logout")
     @login_required()
     def logout():
