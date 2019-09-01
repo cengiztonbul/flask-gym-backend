@@ -20,7 +20,7 @@ def get_workout_list_by_user_id(trainer):
 def json_to_workout_obj(json_workout):
     new_workout = Workout()
 
-    new_workout.name = "test workout" # json_workout["name"]
+    new_workout.name = "test workout"  # json_workout["name"]
     for day in json_workout["days"]:
         daily_exercises = []
         for exercise in day:
@@ -37,10 +37,6 @@ def json_to_workout_obj(json_workout):
 
 def find_workout_by_id(id_str: str):
     return Workout.objects(id=ObjectId(id_str)).first()
-
-
-def find_workout_by_id(obj_id: ObjectId):
-    return Workout.objects(id=obj_id).first()
 
 
 def find_workout_by_user_id(user_id):

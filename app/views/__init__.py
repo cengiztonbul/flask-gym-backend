@@ -19,3 +19,6 @@ def init_views(app):
 
     from app.views.student_views import student_program_views
     student_program_views(app)
+
+    from app.views.static_menu_views import static_views
+    static_views(app)
