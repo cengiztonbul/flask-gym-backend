@@ -2,7 +2,7 @@ $jq = jQuery.noConflict()
 
 
 $jq("#workout-button").click(function() {
-    redirect_with_id("/test/workout")
+    redirect_with_id("/workout")
 }
 )
 
