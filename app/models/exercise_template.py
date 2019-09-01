@@ -16,6 +16,7 @@ class ExerciseTemplate(Document):
             "name": self.name,
             "id": str(self.id),
             "video_url": self.video_url,
+            "img_url": self.img_url,
             "desc": self.desc,
             "app": self.app,
             "exercise_url": self.exercise_url,
