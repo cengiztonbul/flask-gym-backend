@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, ValidationError
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, ValidationError, FileField
 from wtforms.validators import DataRequired, EqualTo, Email
 from passlib.hash import bcrypt_sha256
 from app.services.user_manager import find_user_by_email
@@ -45,3 +45,21 @@ class NewPasswordForm(FlaskForm):
         user = find_user_by_email(current_user.email)
         if not bcrypt_sha256.verify(password.data, user.password_hash):
             raise ValidationError(message="Eski şifreniz yanlış girildi.")
+
+            
+class ExerciseForm(FlaskForm):
+    name = StringField()
+    image = FileField()
+    video_url = StringField()
+    desc = StringField()
+    app = StringField()
+
+    # parts #
+    back = BooleanField()
+    leg = BooleanField()
+    chest = BooleanField()
+    shoulder = BooleanField()
+    abs = BooleanField()
+    biceps = BooleanField()
+    triceps = BooleanField()
+    # ----- #

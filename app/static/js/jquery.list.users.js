@@ -72,7 +72,7 @@ function create_table(user_list)
 
 $jq().ready(function()
 {
-    $jq.get("/test/student_list", function(data)
+    $jq.get("/student_list", function(data)
     {
         // console.log(data);
         fill_table($jq.parseJSON(data));
@@ -83,6 +83,6 @@ $jq(".user-row").live("click", function ()
 {
     console.log($jq(this).attr("id"));
     id = $jq(this).attr("id")
-    window.location.href = "/test/edit_profile?user_id=" + $jq(this).attr("id")
+    window.location.href = "/edit_profile?user_id=" + $jq(this).attr("id")
 });
 

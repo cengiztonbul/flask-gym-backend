@@ -42,15 +42,31 @@ function create_workout_day_table(id) {
     return result;
 }
 
+$jq(document).ready(function()
+{    
+    $jq.get("/data/exercises", function(data)
+    {
+        console.log(data);
+        exercises = $jq.parseJSON(data)
+    });
+    $jq.get("/data/workouts", function(data)
+    {
+        console.log(data);
+        workouts = $jq.parseJSON(data);
+        $jq("#hazir-programlar").append(create_options(workouts));
+    });
+    console.log(workouts)
 
+})
 
-function create_options() {
+function create_options(option_list) {
     var result = `<select name="cmbsubject" class="valid">`;
 
-    for (exercise in exercises) {
+    for (option in option_list) {
+        console.log(option_list[option] )
         result += `
-            <option value="${exercises[exercise]}">${exercises[exercise]}</option>
-        `; // value will be replaced by exercise id
+            <option value="${option_list[option].id}">${option_list[option].name}</option>
+        `; 
     }
 
     result += "</select>";
@@ -63,7 +79,7 @@ function create_row() {
     result = `
     <tbody>
         <tr>
-            <td> ${create_options()} </td>
+            <td> ${create_options(exercises)} </td>
             <td> ${`<input id="set" type="text" name="txtname" placeholder="SET" required="">`} </td>
             <td> ${`<input id="reps" type="text" name="txtname" placeholder="TEKRAR" required="">`} </td>
             <td> ${`<a id="delete-button" class="dt-sc-button small danger bordered" data-hover="Delete"> <i class="fa fa-times-circle"> </i> Delete </a>`} </td>
@@ -79,6 +95,13 @@ $jq("#delete-button").live("click", function () {
     $jq(this).parent().parent().parent().remove();
 });
 
+$jq("#hazir-p-button").live("click", function () {
+    var data = {"user_id": getUrlParameter("user_id"), "id": $jq("#hazir-programlar").find("option:selected").val() };
+    $jq.fn.postJSON("/workout_by_id", JSON.stringify(data));
+
+});
+
+
 
 $jq(".add-exercise-button").live("click", function () {
     $jq("#" + $jq(this).attr("id") + ".create-panel-table").append(create_row());
@@ -87,6 +110,10 @@ $jq(".add-exercise-button").live("click", function () {
 var id = 0;
 
 $jq(".add-day-button").live("click", function () {
+    if($jq("#hazir-programlar") != null)
+    {
+        $jq("#hazir-programlar").remove();
+    }
     id += 1;
     $jq(".workout-tables").append(create_workout_day_table(id));
 });
@@ -97,24 +124,33 @@ $jq(".delete-day-button").live("click", function () {
 
 });
 
+$jq.fn.postJSON = function(url, data) {
+    return $jq.ajax({
+            type: 'POST',
+            url: url,
+            data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+        });
+    }
+
 
 $jq("#post-button").live("click", function () {
-    var days =
-        [
-
-        ]
+    var workout = {"name": "null", "user_id": null, days: []}
+    workout.user_id = getUrlParameter("user_id");
 
     $jq(".create-panel-table").each(function () {
         var day = []
         $jq(this).find("tbody").each(function () {
             day.push(table_to_json($jq(this)));
         });
-        days.push(day);
+        workout.days.push(day);
 
     }
     )
-    console.log(days);
-
+    workout.name = $jq("#workout-name").val();
+    console.log(JSON.stringify(workout));
+    $jq.fn.postJSON("/workout", JSON.stringify(workout));
 });
 
 
@@ -123,42 +159,19 @@ function table_to_json(table) {
 }
 
 
-/*
-    0. a workout object
 
-    1. add exercise
-        a. create a new row
-        b. add the row to the workout object
-    2. add day
-        a. clear the table
-        b. add a new array to the workout object
-        c. create a new table
-    3. delete exercise
-        a. click on the button next to it
-        b. remove from the array
-        c. clear the row
-    4. delete day
-        a. clear the table
-        b. view another day
-        c. remove from the array
-    5. view the previous/next day
-        a. keep track of current index
-        b. clear the table
-        c. get the other day's data
-        d. fill the values with the data
-    6. finish the program
-        a. post the workout object
-*/
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
 
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
 
-/*
-    1. add day will add a new table with the id of the day button
-*/
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
 
-
-/*
-    day table
-        table
-        add exercise
-        delete day
-*/

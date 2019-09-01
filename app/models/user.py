@@ -20,6 +20,5 @@ class User(Document, UserMixin):
     role = fields.StringField(required=False, default="user")
     password_hash = fields.StringField(required=True)
 
-
     def get_name_obj(self):
         return {"id": str(self.id), "first_name": self.first_name, "last_name": self.last_name}

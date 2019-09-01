@@ -1,9 +1,9 @@
 from mongoengine import fields
-from mongoengine import Document
-from Data.exercise_template import ExerciseTemplate
+from mongoengine import EmbeddedDocument
+from .exercise_template import ExerciseTemplate
 
 
-class Exercise(Document):
+class Exercise(EmbeddedDocument):
     exercise_id = fields.ReferenceField(ExerciseTemplate)
 
     sets = fields.IntField()
