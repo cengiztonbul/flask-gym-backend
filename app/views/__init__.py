@@ -16,3 +16,6 @@ def init_views(app):
 
     from app.views.workout_views import admin_workout_routes
     admin_workout_routes(app)
+
+    from app.views.student_views import student_program_views
+    student_program_views(app)

@@ -4,6 +4,7 @@ from bson import ObjectId
 
 from app.models.exercise import Exercise
 from app.models.exercise_template import ExerciseTemplate
+from app.models.student import Student
 from app.models.trainer import Trainer
 from app.models.workout import Workout
 
@@ -40,3 +41,8 @@ def find_workout_by_id(id_str: str):
 
 def find_workout_by_id(obj_id: ObjectId):
     return Workout.objects(id=obj_id).first()
+
+
+def find_workout_by_user_id(user_id):
+    student = Student.objects(user_id=user_id).first()
+    return student.workouts_ids[0].to_json()

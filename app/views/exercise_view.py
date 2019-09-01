@@ -41,3 +41,8 @@ def exercise_views(app):
     @app.route('/exercises')
     def exercises():
         return render_template('exercise_list.html', exercise_list=get_exercise_list())
+
+    @app.route('/data/exercise')
+    def exercise_data():
+        e_id = request.args.get('exercise_id')
+        return get_exercise_by_id(e_id).to_json()
