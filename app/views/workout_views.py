@@ -34,3 +34,5 @@ def admin_workout_routes(app):
     @login_required(['admin', 'trainer'])
     def workout_list():
         return get_workout_list_by_user_id(current_user)
+
+

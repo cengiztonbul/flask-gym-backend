@@ -95,9 +95,20 @@
                                 <nav id="main-menu">
                                     <ul id="menu-main-menu" class="menu">
                                         <li class="menu-item-simple-parent menu-item-depth-0">
-                                            <a href="index.html">Home</a>
+                                            <a href="index.html">Anasayfa</a>
                                         </li>
-
+                                        <li class="menu-item-simple-parent menu-item-depth-0">
+                                            <a href="/exercises">Hareketler</a>
+                                        </li>
+                                        {% if current_user.role_id == "user" %}
+                                        <li class="menu-item-simple-parent menu-item-depth-0">
+                                            <a href="/Profile">Programlar</a>
+                                        </li>
+                                        {% else %}
+                                        <li class="menu-item-simple-parent menu-item-depth-0">
+                                            <a href="/admin_panel">Yönetim</a>
+                                        </li>
+                                        {% endif %}
                                         <li
                                             class="menu-item-megamenu-parent megamenu-4-columns-group menu-item-depth-0">
                                             <a href="about.html">About</a>
@@ -132,57 +143,60 @@
                     <section id="primary" class="content-full-width">
                         <div class="dt-sc-hr-invisible"></div>
                         <div>
-                        <!-- Packages starts here -->
-                        <div class="fullwidth-section">
-                            <div class="container">
-                                <h2 class="border-title aligncenter"> <span> Name Surname </span> </h2>
+                            <!-- Packages starts here -->
+                            <div class="fullwidth-section">
+                                <div class="container">
+                                    <h2 class="border-title aligncenter"> <span> Name Surname </span> </h2>
 
-                                <h4 class="border-title aligncenter"> <span id="workout-input"> <input id="workout-name" type="text" name="txtname" placeholder="PROGRAM ADI" required=""> </td>
-                                </span>
-                                </h4>
+                                    <h4 class="border-title aligncenter"> <span id="workout-input"> <input
+                                                id="workout-name" type="text" name="txtname" placeholder="PROGRAM ADI"
+                                                required=""> </td>
+                                        </span>
+                                    </h4>
 
-                                <!-- Table starts here -->
+                                    <!-- Table starts here -->
 
-                                <div class="workout-tables">
-                                <div id="hazir-programlar">
-                                    <div id="hazir-p-button">
-                                        <a class="dt-sc-button medium" data-hover="HAZIR">HAZIR PROGRAM YOLLA </a>
+                                    <div class="workout-tables">
+                                        <div id="hazir-programlar">
+                                            <div id="hazir-p-button">
+                                                <a class="dt-sc-button medium" data-hover="HAZIR">HAZIR PROGRAM YOLLA
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                </div>
-                                <!-- Table ends here -->
+                                    <!-- Table ends here -->
 
-                                <div class="dt-sc-clear"></div>
-                                <div class="dt-sc-hr-invisible-medium"></div>
-                            </div>
-                            <div class="column dt-sc-one-third">
-                                <div class="add-day-button" id=" 0">
-                                    <a class="dt-sc-button medium" data-hover="SUPPLEMENT">GÜN EKLE </a>
+                                    <div class="dt-sc-clear"></div>
+                                    <div class="dt-sc-hr-invisible-medium"></div>
                                 </div>
-                                <div id="post-button">
-                                    <a class="dt-sc-button medium" data-hover="SUPPLEMENT">YOLLA </a>
+                                <div class="column dt-sc-one-third">
+                                    <div class="add-day-button" id=" 0">
+                                        <a class="dt-sc-button medium" data-hover="SUPPLEMENT">GÜN EKLE </a>
+                                    </div>
+                                    <div id="post-button">
+                                        <a class="dt-sc-button medium" data-hover="SUPPLEMENT">YOLLA </a>
+                                    </div>
+                                    <div class="dt-sc-clear"></div>
+                                    <div class="dt-sc-hr-invisible-medium"></div>
                                 </div>
-                                <div class="dt-sc-clear"></div>
-                                <div class="dt-sc-hr-invisible-medium"></div>
-                            </div>
 
+                            </div>
                         </div>
+                    </section>
                 </div>
-            </section>
-        </div>
-        <!-- main-content ends here -->
-    </div>
-    <!-- footer starts here -->
-    <footer id="footer">
-        <div class="copyright">
-            <div class="container">
-                <p>&copy; Copyright - 2019</p>
+                <!-- main-content ends here -->
             </div>
-        </div>
-    </footer>
-    <!-- footer ends here -->
+            <!-- footer starts here -->
+            <footer id="footer">
+                <div class="copyright">
+                    <div class="container">
+                        <p>&copy; Copyright - 2019</p>
+                    </div>
+                </div>
+            </footer>
+            <!-- footer ends here -->
 
-    </div><!-- **Inner Wrapper - End** -->
+        </div><!-- **Inner Wrapper - End** -->
     </div><!-- **Wrapper - End** -->
 
     <!-- **jQuery** -->

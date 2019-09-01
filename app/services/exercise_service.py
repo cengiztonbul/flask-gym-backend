@@ -46,5 +46,9 @@ def create_exercise(name, image, video_url, body_parts, desc, application):
     return new_exercise
 
 
-def get_exercise_by_id(id_str) -> ExerciseTemplate:
+def get_exercise_by_id(id_str: str) -> ExerciseTemplate:
     return ExerciseTemplate.objects(id=ObjectId(id_str)).first()
+
+
+def get_exercise_by_id(obj_id: ObjectId) -> ExerciseTemplate:
+    return ExerciseTemplate.objects(id=obj_id).first()

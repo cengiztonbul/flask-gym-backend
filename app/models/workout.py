@@ -16,4 +16,3 @@ class Workout(Document):
             "id": str(self.id)
         }
 
-
