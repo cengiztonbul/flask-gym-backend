@@ -23,4 +23,4 @@ def init_user_views(app):
             change_user_password(email=current_user.email, password=form.new_password.data)
             return "Password Changed"
         else:
-            return "failed the chekc"
+            return "failed the check"
