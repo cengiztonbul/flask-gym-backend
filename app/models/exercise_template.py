@@ -8,7 +8,7 @@ class ExerciseTemplate(Document):
     img_url = fields.StringField()
     video_url = fields.StringField()
     desc = fields.StringField()
-    app = fields.StringField()
+    steps = fields.StringField()  # steps are separated with "/" in a single string. it is handled on frontend
     exercise_url = fields.StringField()
 
     def to_dict(self):
@@ -18,7 +18,7 @@ class ExerciseTemplate(Document):
             "video_url": self.video_url,
             "img_url": self.img_url,
             "desc": self.desc,
-            "app": self.app,
+            "app": self.steps,
             "exercise_url": self.exercise_url,
             "body_parts": self.body_parts_ids
         }

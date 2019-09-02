@@ -16,10 +16,9 @@ def exercise_views(app):
     @app.route('/create_exercise', methods=['POST'])
     @login_required(['admin'])
     def create_exercise_post():
-        # TODO: fill the function
-        # form = ExerciseForm()
-        # create_exercise(form.name, form.image, form.video_url)
-        return "ok"
+        form = ExerciseForm()
+        create_exercise(form.name.data, form.image.data, form.video_url.data, form.body_parts, form.desc.data, form.steps.data)
+        return redirect('/create_exercise')
 
     @app.route('/data/exercises')
     def exercises_list():
