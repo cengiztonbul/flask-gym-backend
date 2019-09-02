@@ -1,5 +1,6 @@
 from ..models.user import User
 from passlib.hash import bcrypt_sha256
+
 DEFAULT_PASSWORD = "123456"
 
 
@@ -22,4 +23,10 @@ def find_user_by_email(email):
 
 def delete_user_by_id(user_id):
     User.objects(user_id=user_id).first.delete()
+
+    
+def change_user_password(email, password):
+    user = find_user_by_email(email)
+    user.password_hash = bcrypt_sha256.hash(password)
+    user.save()
 

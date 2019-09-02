@@ -1,7 +1,5 @@
 from flask import Flask
 from flask_login import LoginManager
-from flask_user import UserManager
-
 login = LoginManager()
 
 UPLOAD_FOLDER = '/images/exercise_images'
@@ -18,5 +16,4 @@ def create_app():
     from .views import init_views
     init_views(app)
     login.init_app(app)
-    login.login_view = 'login'
     return app
