@@ -14,6 +14,9 @@ def init_views(app):
     from app.views.exercise_view import exercise_views
     exercise_views(app)
 
+    from app.views.user_views import init_user_views
+    init_user_views(app)
+
     from app.views.workout_views import admin_workout_routes
     admin_workout_routes(app)
 

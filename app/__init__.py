@@ -3,8 +3,6 @@ from flask_login import LoginManager
 from flask_user import UserManager
 from os import path
 
-print(path.dirname(__file__))
-
 login = LoginManager()
 
 UPLOAD_FOLDER = path.dirname(__file__) + '/static/images/exercise_images'
@@ -23,5 +21,4 @@ def create_app():
     from .views import init_views
     init_views(app)
     login.init_app(app)
-    login.login_view = 'login'
     return app

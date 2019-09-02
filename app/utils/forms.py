@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired, EqualTo, Email
 from passlib.hash import bcrypt_sha256
 from app.services.user_manager import find_user_by_email
 from ..models.user import User
+from flask_login import current_user
 
 
 class RegisterForm(FlaskForm):
@@ -34,6 +35,18 @@ class LoginForm(FlaskForm):
             raise ValidationError(message="Email veya şifrenizi kontrol ediniz.")
 
 
+class NewPasswordForm(FlaskForm):
+    password = PasswordField("Eski Şifre", validators=[DataRequired()], )
+    new_password = PasswordField("Yeni Şifre", validators=[DataRequired(), EqualTo("new_password_confirm",
+                                                                                   message="Passwords must match")])
+    new_password_confirm = PasswordField("Yeni Şifre (tekrar)", validators=[DataRequired()])
+
+    def validate_password(self, password):
+        user = find_user_by_email(current_user.email)
+        if not bcrypt_sha256.verify(password.data, user.password_hash):
+            raise ValidationError(message="Eski şifreniz yanlış girildi.")
+
+            
 class ExerciseForm(FlaskForm):
     name = StringField("Hareket Adı", validators=[DataRequired()])
     image = FileField("hareket fotoğrafı")
