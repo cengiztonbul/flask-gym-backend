@@ -35,18 +35,45 @@ class LoginForm(FlaskForm):
 
 
 class ExerciseForm(FlaskForm):
-    name = StringField()
-    image = FileField()
-    video_url = StringField()
-    desc = StringField()
-    app = StringField()
+    name = StringField("Hareket Adı", validators=[DataRequired()])
+    image = FileField("hareket fotoğrafı")
+    video_url = StringField("Video Linki")
+    desc = StringField("description", validators=[DataRequired()])
+    steps = StringField("steps", validators=[DataRequired()])
 
     # parts #
-    back = BooleanField()
-    leg = BooleanField()
-    chest = BooleanField()
-    shoulder = BooleanField()
-    abs = BooleanField()
-    biceps = BooleanField()
-    triceps = BooleanField()
+    back = BooleanField("back")
+    leg = BooleanField("leg")
+    chest = BooleanField("chest")
+    shoulder = BooleanField("shoulder")
+    abs = BooleanField("abs")
+    biceps = BooleanField("biceps")
+    triceps = BooleanField("triceps")
     # ----- #
+
+    @property
+    def body_parts(self):
+        parts = []
+
+        if self.back.data:
+            parts.append("Sırt")
+
+        if self.leg.data:
+            parts.append("Bacak")
+
+        if self.chest.data:
+            parts.append("Göğüs")
+
+        if self.shoulder.data:
+            parts.append("Omuz")
+
+        if self.abs.data:
+            parts.append("Karın")
+
+        if self.biceps.data:
+            parts.append("Ön Kol")
+
+        if self.triceps.data:
+            parts.append("Arka Kol")
+
+        return parts

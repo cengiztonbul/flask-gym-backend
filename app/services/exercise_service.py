@@ -3,7 +3,7 @@ import os
 
 from bson import ObjectId
 
-import app
+from app import app
 from ..models.exercise_template import ExerciseTemplate
 
 
@@ -21,10 +21,7 @@ def get_exercise_list():
     return e_list
 
 
-def create_exercise(name, image, video_url, body_parts, desc, application):
-    """ application is stored with /s to split the steps. it will
-    be handled on frontend"""
-
+def create_exercise(name, image, video_url, body_parts, desc, steps):
     new_exercise = ExerciseTemplate()
     new_exercise.name = name
 
@@ -32,15 +29,14 @@ def create_exercise(name, image, video_url, body_parts, desc, application):
         new_exercise.body_parts_ids.append(part)
 
     new_exercise.desc = desc
-    new_exercise.app = application
+    new_exercise.steps = steps
 
-    # generate a unique name to store the image
-    import datetime
+    # TODO: generate a unique name to store the image
+    # import datetime
+
     filename = name + ".png"
-
-    new_exercise.img_url = os.path.join("/images/exercise_images", filename)
-    image.save(new_exercise.img_url)
-
+    image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    new_exercise.img_url = '/images/exercise_images/' + filename
     new_exercise.video_url = video_url
     new_exercise.save()
     return new_exercise
@@ -52,3 +48,4 @@ def get_exercise_by_id(id_str: str) -> ExerciseTemplate:
 
 def get_exercise_by_id(obj_id: ObjectId) -> ExerciseTemplate:
     return ExerciseTemplate.objects(id=obj_id).first()
+

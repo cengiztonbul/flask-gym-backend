@@ -159,25 +159,25 @@
                             <div class="container">
                                 <h3 class="border-title aligncenter"> <span> HAREKET OLUŞTUR
                                     </span></h3>
-                            </div>
+                            </div>xx
                         </div>
                         <div>
 
                             <div class="container">
                                 <div class="dt-sc-clear"></div>
                                 <div class="form-wrapper">
-                                    <form method="post" id="loginform" name="frmLogin">
+                                    <form method="post" id="exerciseform" name="exercise-form" enctype="multipart/form-data">
                                         <p>
-                                            <input placeholder="Hareket Adı" id="exercise-name" name="exercise"
+                                            <input placeholder="Hareket Adı" id="name" name="name"
                                                 autocomplete="off" type="text" required="true">
                                         </p>
 
                                         <p>
-                                            <input placeholder="Video Linki" id="video-link" name="exercise"
+                                            <input placeholder="Video Linki" id="video_url" name="video_url"
                                                 autocomplete="off" type="text" required="true">
                                         </p>
 
-                                        <input type="file" aria-placeholder="hareket fotoğrafı">
+                                        <input type="file" aria-placeholder="hareket fotoğrafı" id="image" name="image">
                                         <div class="body-parts">
 
                                             <div class="column dt-sc-one-third">
@@ -188,7 +188,8 @@
 
                                             <div class="column dt-sc-one-third">
                                                 <label><input value="forever" id="shoulder" name="shoulder"
-                                                        type="checkbox"> OMUZ</label>
+                                                        type="checkbox"> OMUZ
+                                                </label>
                                             </div>
                                             <div class="column dt-sc-one-third">
 
@@ -221,13 +222,13 @@
                                         </div>
 
                                         <p>
-                                            <textarea rows="5" cols="60" name="description"
+                                            <textarea rows="5" cols="60" name="desc" id="desc"
                                                 placeholder="Açıklama"></textarea>
                                         </p>
 
                                         <p>
-                                            <textarea rows="5" cols="60" name="description"
-                                                placeholder="Hareketin yapılışı(her adım maddesini * ile belirtiniz)"></textarea>
+                                            <textarea rows="5" cols="60" name="steps" id="steps"
+                                                placeholder="Hareketin Yapılışı(Her adımı / ile ayırınız.)"></textarea>
                                         </p>
 
 
@@ -247,12 +248,12 @@
             </div>
             <!-- footer starts here -->
             <footer id="footer">
-                    <div class="copyright">
-                        <div class="container">
-                            <p>&copy; Copyright - 2019</p>
-                        </div>
+                <div class="copyright">
+                    <div class="container">
+                        <p>&copy; Copyright - 2019</p>
                     </div>
-                </footer>
+                </div>
+            </footer>
             <!-- footer ends here -->
 
         </div><!-- **Inner Wrapper - End** -->
