@@ -19,8 +19,11 @@ def get_workout_list_by_user_id(trainer):
 
 def json_to_workout_obj(json_workout):
     new_workout = Workout()
+    if json_workout["name"] is not None:
+        new_workout.name = json_workout["name"]
+    else:
+        new_workout.name = "Çalışma Programı"
 
-    new_workout.name = "test workout"  # json_workout["name"]
     for day in json_workout["days"]:
         daily_exercises = []
         for exercise in day:

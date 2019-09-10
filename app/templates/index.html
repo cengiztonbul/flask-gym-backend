@@ -78,20 +78,16 @@
                     <!-- Top bar starts here -->
                     <div class="top-bar">
                         <div class="container">
-                            <div class="dt-sc-contact-info">
-                                <p><i class="fa fa-phone"></i>Any Questions? Call Us: <span>1-223-355-2214</span></p>
-                            </div>
                             <div class="top-right">
                                 <ul>
                                     <li>
                                         {% if current_user.is_authenticated %}
-                                        <a title="Logout" href="logout"><span class="fa fa-sign-out"></span>Çıkış
+                                        <a title="Logout" href="/logout"><span class="fa fa-sign-out"></span>Çıkış
                                         </a></li>
                                     <li><a title="Profil" href="/profile"><span class="fa fa-user"></span>
                                             {{current_user.first_name + " " + current_user.last_name}} </a></li>
                                     {% else %}
-                                    <a title="Login" href="/login"><span class="fa fa-sign-in"></span>Member
-                                        Login</a></li>
+                                    <a title="Login" href="/login"><span class="fa fa-sign-in"></span>Üye Girişi</a></li>
 
                                     {% endif %}
                                 </ul>
@@ -102,7 +98,7 @@
                     <div class="main-menu-container">
                         <div class="main-menu">
                             <div id="logo">
-                                <a title="Travel" href="index.html"><img title="Fitness" alt="Fitness"
+                                <a title="Travel" href="/"><img title="Fitness" alt="Fitness"
                                         src="/images/logo.png"></a>
                             </div>
                             <div id="primary-menu">
@@ -111,7 +107,7 @@
                                 <nav id="main-menu">
                                     <ul id="menu-main-menu" class="menu">
                                         <li class="menu-item-simple-parent menu-item-depth-0">
-                                            <a href="index.html">ANASAYFA</a>
+                                            <a href="/">ANASAYFA</a>
                                         </li>
                                         <li class="menu-item-simple-parent menu-item-depth-0">
                                             <a href="/exercises">HAREKETLER</a>
@@ -928,97 +924,13 @@
             </div>
             <!-- footer starts here -->
             <footer id="footer">
-                <div class="footer-widgets-wrapper">
-                    <div class="container">
-                        <div class="column dt-sc-one-fourth first">
-                            <aside class="widget widget_text">
-                                <div class="textwidget">
-                                    <h3 class="widgettitle"><span class="fa fa-user"></span>About Us</h3>
-                                    <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution
-                                        of
-                                        letters, as opposed to using 'Content here, making it look like readable
-                                        English. </p>
-                                    <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution
-                                        of
-                                        letters</p>
-                                </div>
-                            </aside>
-                        </div>
-                        <div class="column dt-sc-one-fourth">
-                            <aside class="widget widget_text">
-                                <h3 class="widgettitle"><span class="fa fa-link"></span>Useful Links</h3>
-                                <div class="textwidget">
-                                    <ul>
-                                        <li><a href="#">Fitness Tips</a></li>
-                                        <li><a href="#">Faq's</a></li>
-                                        <li><a href="#">Workout Programs</a></li>
-                                        <li><a href="#">Fitness Camps</a></li>
-                                        <li><a href="#">Blogs</a></li>
-                                        <li><a href="#">Fitness Updates</a></li>
-                                    </ul>
-                                </div>
-                            </aside>
-                        </div>
-                        <div class="column dt-sc-one-fourth">
-                            <aside class="widget widget_tweetbox">
-                                <h3 class="widgettitle"><span class="fa fa-twitter"></span>Twitter Updates</h3>
-                                <div class="tweet_list"></div>
-                            </aside>
-                        </div>
-                        <div class="column dt-sc-one-fourth">
-                            <aside class="widget widget_recent_entries">
-                                <h3 class="widgettitle"><span class="fa fa-calendar"></span>Upcoming Events</h3>
-                                <div class="recent-posts-widget">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="entry-thumb"><img
-                                                    src="http://placehold.it/70x60&text=Thumb" alt="" title=""></a>
-                                            <h4><a href="#">Training with Dumbell</a></h4>
-                                            <div class="entry-metadata">
-                                                <p class="date">26 May 2014</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="entry-thumb"><img
-                                                    src="http://placehold.it/70x60&text=Thumb" alt="" title=""></a>
-                                            <h4><a href="#">Create the Adonis Effect</a></h4>
-                                            <div class="entry-metadata">
-                                                <p class="date">24 May 2014</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </aside>
+                    <div class="copyright">
+                        <div class="container">
+                            <p>&copy; Copyright - 2019</p>
                         </div>
                     </div>
-                    <div class="social-media-container">
-                        <div class="social-media">
-                            <div class="container">
-                                <div class="dt-sc-contact-info dt-phone">
-                                    <p><i class="fa fa-phone"></i> <span>953 224 2235 221</span></p>
-                                </div>
-                                <ul class="dt-sc-social-icons">
-                                    <li class="facebook"><a href="#" class="fa fa-facebook"></a></li>
-                                    <li class="google"><a href="#" class="fa fa-google-plus"></a></li>
-                                    <li class="twitter"><a href="#" class="fa fa-twitter"></a></li>
-                                    <li class="youtube"><a href="#" class="fa fa-youtube"></a></li>
-                                    <li class="rss"><a href="#" class="fa fa-rss"></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="copyright">
-                    <div class="container">
-                        <ul class="footer-links">
-                            <li><a href="#"> About Us </a></li>
-                            <li><a href="#"> Help Centre </a></li>
-                            <li><a href="#"> Site Map </a></li>
-                        </ul>
-                        <p>&copy; 2014 - FitnessMark. Design: BuddhaThemes</p>
-                    </div>
-                </div>
-            </footer>
+                </footer>
+    
             <!-- footer ends here -->
 
         </div><!-- **Inner Wrapper - End** -->

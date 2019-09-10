@@ -70,20 +70,17 @@
                     <!-- Top bar starts here -->
                     <div class="top-bar">
                         <div class="container">
-                            <div class="dt-sc-contact-info">
-                                <p><i class="fa fa-phone"></i>Any Questions? Call Us: <span>1-223-355-2214</span></p>
-                            </div>
                             <div class="top-right">
                                 <ul>
                                     <li>
                                         {% if current_user.is_authenticated %}
-                                        <a title="Logout" href="logout"><span class="fa fa-sign-out"></span>Çıkış
+                                        <a title="Logout" href="/logout"><span class="fa fa-sign-out"></span>Çıkış
                                         </a></li>
                                     <li><a title="Profil" href="/profile"><span class="fa fa-user"></span>
                                             {{current_user.first_name + " " + current_user.last_name}} </a></li>
                                     {% else %}
-                                    <a title="Login" href="/login"><span class="fa fa-sign-in"></span>Member
-                                        Login</a></li>
+                                    <a title="Login" href="/login"><span class="fa fa-sign-in"></span>Üye Girişi</a>
+                                    </li>
 
                                     {% endif %}
                                 </ul>
@@ -94,7 +91,7 @@
                     <div class="main-menu-container">
                         <div class="main-menu">
                             <div id="logo">
-                                <a title="Travel" href="index.html"><img title="Fitness" alt="Fitness"
+                                <a title="Travel" href="/"><img title="Fitness" alt="Fitness"
                                         src="/images/logo.png"></a>
                             </div>
                             <div id="primary-menu">
@@ -103,7 +100,7 @@
                                 <nav id="main-menu">
                                     <ul id="menu-main-menu" class="menu">
                                         <li class="menu-item-simple-parent menu-item-depth-0">
-                                            <a href="index.html">ANASAYFA</a>
+                                            <a href="/">ANASAYFA</a>
                                         </li>
                                         <li class="menu-item-simple-parent menu-item-depth-0">
                                             <a href="/exercises">HAREKETLER</a>
@@ -137,6 +134,7 @@
                         </div>
                     </div>
                 </header>
+
             </div>
             <!-- header-wrapper ends here -->
             <!-- breadcrumb starts here -->
@@ -160,18 +158,17 @@
                         <!-- Packages starts here -->
                         <div class="fullwidth-section">
                             <div class="container">
-                                <h2 class="border-title aligncenter"> <span> Name Surname </span> </h2>
-
 
                                 <div style="text-align:center">
                                     <div class="column dt-sc-one-third first">
                                         <a id="student-list-button" class="dt-sc-button medium" href="#"
-                                            data-hover="ÇALIŞMA PROGRAMI">ÖĞRENCİLERİ LİSTELE</a>
+                                            data-hover="ÖĞRENCİLER">ÖĞRENCİLERİ LİSTELE</a>
                                     </div>
                                     <div class="column dt-sc-one-third first">
-                                        <a id="create-exercise-button" class="dt-sc-button medium" href="/create_exercise"
-                                            data-hover="ÇALIŞMA PROGRAMI"> HAREKET EKLE </a>
+                                        <a id="create-exercise-button" class="dt-sc-button medium"
+                                            href="/create_exercise" data-hover="HAREKET"> HAREKET EKLE </a>
                                     </div>
+
                                     <div class="dt-sc-hr-invisible-medium"></div>
                                 </div>
                             </div>

@@ -11,7 +11,7 @@ def init_user_views(app):
     @app.route("/profile", methods=['GET'])
     @login_required()
     def profile():
-        raise NotImplemented
+        return render_template("view_programs.html")
 
     @app.route("/profile/change_password", methods=['GET', 'POST'])
     @login_required()
