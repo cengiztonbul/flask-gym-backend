@@ -1,0 +1,352 @@
+<!doctype html>
+<!--[if IE 7 ]>    <html lang="en-gb" class="isie ie7 oldie no-js"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en-gb" class="isie ie8 oldie no-js"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en-gb" class="isie ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en-gb" class="no-js"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title> Fitness - Multipurpose Theme </title> 
+	
+	<meta name="description" content="">
+	<meta name="author" content="">
+    
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <!-- **Favicon** -->
+    <link href="{{url_for('static',filename='images/favicon.ico')}}" rel="shortcut icon" type="image/x-icon" />
+    
+    <!-- **CSS - stylesheets** -->
+    <link id="default-css" href="{{url_for('static',filename='style.css')}}" rel="stylesheet" media="all" />
+    <link id="shortcodes-css" href="{{url_for('static',filename='shortcodes.css')}}" rel="stylesheet" media="all" />
+        
+    <link id="skin-css" href="{{url_for('static',filename='skins/green/style.css')}}" rel="stylesheet" media="all" />
+    
+    <link id="fancy-box" href="{{url_for('static',filename='css/jquery.fancybox.css')}}" rel="stylesheet" media="all" />
+    
+    <!-- **Additional - stylesheets** -->
+    <link href="{{url_for('static',filename='css/responsive.css')}}" rel="stylesheet" media="all" />
+    <link href="{{url_for('static',filename='css/pace-theme-loading-bar.css')}}" rel="stylesheet" media="all" />
+    
+    <!-- **Font Awesome** -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/flaticon.css')}}">
+    
+    <!-- **Google - Fonts** -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
+    
+    <!-- **Modernizr** -->
+	<script src="{{url_for('static',filename='js/modernizr.custom.js')}}"></script>
+    <script type="text/javascript">
+	var mytheme_urls = {
+ 		stickynav : 'enable'
+	};
+	</script>
+    </head>
+<body>
+	<div id="loader-wrapper">
+    	<div class="loader">
+        	<span class="glyph-icon flaticon-man159"></span>
+        </div>
+    </div>
+	<!-- **Wrapper** -->
+	<div class="wrapper">
+    	<div class="inner-wrapper">
+        	<!-- header-wrapper starts here -->
+        	<div id="header-wrapper">
+                <header id="header">
+                    <!-- Top bar starts here -->
+                    <div class="top-bar">
+                        <div class="container">
+                            <div class="top-right">
+                                <ul>
+                                    <li>
+                                        {% if current_user.is_authenticated %}
+                                        <a title="Logout" href="/logout"><span class="fa fa-sign-out"></span>Çıkış
+                                        </a></li>
+                                    <li><a title="Profil" href="/profile"><span class="fa fa-user"></span>
+                                            {{current_user.first_name + " " + current_user.last_name}} </a></li>
+                                    {% else %}
+                                    <a title="Login" href="/login"><span class="fa fa-sign-in"></span>Üye Girişi</a></li>
+
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Top bar ends here -->
+                    <div class="main-menu-container">
+                        <div class="main-menu">
+                            <div id="logo">
+                                <a title="Travel" href="/"><img title="Fitness" alt="Fitness"
+                                        src="/images/logo.png"></a>
+                            </div>
+                            <div id="primary-menu">
+                                <div class="dt-menu-toggle" id="dt-menu-toggle">Menu<span
+                                        class="dt-menu-toggle-icon"></span></div>
+                                <nav id="main-menu">
+                                    <ul id="menu-main-menu" class="menu">
+                                        <li class="menu-item-simple-parent menu-item-depth-0">
+                                            <a href="/">ANASAYFA</a>
+                                        </li>
+                                        <li class="menu-item-simple-parent menu-item-depth-0">
+                                            <a href="/exercises">HAREKETLER</a>
+                                        </li>
+                                        {% if current_user.is_authenticated %}
+                                        {% if current_user.role == "user" %}
+                                        <li class="menu-item-simple-parent menu-item-depth-0">
+                                            <a href="/profile">PROGRAMLAR</a>
+                                        </li>
+                                        {% else %}
+                                        <li class="menu-item-simple-parent menu-item-depth-0">
+                                            {{current_user.role_id}}
+                                            <a href="/admin_panel">YÖNETİM</a>
+                                        </li>
+                                        {% endif %}
+                                        {% endif %}
+                                        <li
+                                            class="menu-item-megamenu-parent megamenu-4-columns-group menu-item-depth-0">
+                                            <a href="/about">HAKKIMIZDA</a>
+                                        </li>
+
+                                        <li class="menu-item-simple-parent menu-item-depth-0"><a
+                                                href="/contact">İLETİŞİM</a>
+                                        </li>
+                                        <li class="menu-item-simple-parent menu-item-depth-0"><a
+                                                href="/packages">PAKETLER</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+			</div>
+            <!-- header-wrapper ends here -->
+            <!-- breadcrumb starts here -->
+            <div class="breadcrumb-wrapper">
+            	<div class="container">
+                	<h1>Kayıt Ol</h1>
+                    <div class="breadcrumb">
+                        <a href="index.html">Anasayfa</a>
+                        <span class="default">  </span>
+                        <h4>Yeni kayıt</h4>
+	                </div>
+                </div>
+            </div>
+            <!-- breadcrumb ends here -->
+            <div id="main">
+                <!-- main-content starts here -->
+                <div id="main-content">
+                    <section id="primary" class="content-full-width">
+                        <div class="dt-sc-hr-invisible"></div>
+                        <div class="dt-sc-hr-invisible"></div>
+                        <div class="fullwidth-section">  
+                            <div class="container">  
+                                <h3 class="border-title aligncenter"> <span> <i class="fa fa-user"></i> KAYIT OLMADINIZ MI? - HEMEN KAYIT OLUN </span></h3>
+                            </div>
+                        </div> 
+                        <div class="fullwidth-section dt-sc-paralax full-pattern3">
+							<div class="container">
+                                <div class="form-wrapper register">
+                                    <form method="post" id="registerform" name="register_form">
+                                        {{form.csrf_token}}
+                                        <p class="dt-sc-one-half column first">
+                                            <input placeholder="Ad*" id="first_name" name="first_name" type="text" required>
+                                        </p>
+
+                                        <p class="dt-sc-one-half column">
+                                            <input placeholder="Soyad*" id="last_name" name="last_name" type="text" required>
+                                        </p>
+
+                                        <p class="dt-sc-one-half column first">
+                                            <input placeholder="İletişim* (0-5XX-XXX-XXXX)" id="contact" name="contact" type="text" minlength="11" maxlength="11" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                        </p>
+
+                                        <p class="dt-sc-one-half column">
+                                           <input placeholder="Doğum Tarihi*" name="date" class="textbox-n" type="text" onfocus="(this.type='date')" id="date" required>
+                                        </p>
+
+                                        <p class="dt-sc-one-half column first">
+                                            <select id="gender" name="gender"  required>
+                                                <option value="" disabled selected>Cinsiyetinizi seçiniz*</option>
+                                                <option value="female">Kadın</option>
+                                                <option value="male">Erkek</option>
+                                            </select>
+                                        </p>
+
+                                         <p class="dt-sc-one-half column">
+                                            <select id="blood" required>
+                                                <option value="" disabled selected>Kan grubunuzu giriniz*</option>
+                                                <option value="0_positive">0+</option>
+                                                <option value="0_negative">0-</option>
+                                                <option value="A_positive">A+</option>
+                                                <option value="A_negative">A-</option>
+                                                <option value="B_positive">B+</option>
+                                                <option value="B_negative">B-</option>
+                                                <option value="AB_positive">AB+</option>
+                                                <option value="AB_negative">AB-</option>
+                                            </select>
+                                        </p>
+
+                                        <p class="dt-sc-one-half column first">
+                                            <input placeholder="T.C*" name="identityNo" type="text" id="identityNo" maxlength="11" minlength="11" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                        </p>
+
+                                        <br>
+                                        <h3 class="border-title aligncenter"> <span>  FİZİKSEL KONSÜLTASYON </span></h3>
+
+                                         <p class="textarea">
+                                            <textarea rows="10" cols="40" placeholder="Geçmişteki yaralanma ve kazalar (Lütfen herhangi bir kalıcı sakatlık var ise belirtiniz" name="person_history" form="usrform" id="person_history"></textarea>
+                                        </p>
+
+                                        <p class="textarea ">
+                                            <textarea rows="10" cols="40" name="disorders" placeholder="Kronik rahatsızlıklar (dikkat etmemiz gereken tıbbi bir sorununuz var mı?)" form="usrform" id="disorders"></textarea>
+                                        </p>
+
+
+                                        <p class="dt-sc-one-half column first">
+                                            <select id="pregnancy" name="pregnancy">
+                                                <option value="" disabled selected>Hamile misiniz? (*)</option>
+                                                <option value="yes">Evet</option>
+                                                <option value="no">Hayır</option>
+                                            </select>
+                                        </p>
+
+                                        <p class="dt-sc-one-half column">
+                                            <select id="therapy" name="therapy" required>
+                                                <option value="" disabled selected>Fizyoterapistten tedavi görüyor musunuz? (*)</option>
+                                                <option value="yes">Evet</option>
+                                                <option value="no">Hayır</option>
+                                            </select>
+                                        </p>
+
+                                        <p class="dt-sc-one-half column first ">
+                                            <input placeholder="Amaçlarınız nedir?" id="goals" name="goals" type="text">
+                                        </p>
+
+                                        <p class="dt-sc-one-half column">
+                                            <input placeholder="Varsa,alerjiniz nedir?" id="alergy" name="alergy" type="text" >
+                                        </p>
+
+                                        <h3 class="border-title aligncenter"> <span>  SOSYAL-İŞ YAŞAMI </span></h3>
+
+                                       <p class="dt-sc-one-half column first">
+                                            <select id="sugar" name="sugar" required>
+                                                <option value="" disabled selected>Şeker kullanım sıklığı(*)</option>
+                                                <option value="yes">Evet</option>
+                                                <option value="social">Sosyal</option>
+                                                <option value="no">Hayır</option>
+                                            </select>
+                                        </p>
+
+                                        <p class="dt-sc-one-half column ">
+                                            <select id="alcohol" name="alcohol" required>
+                                                <option value="" disabled selected>Alkol kullanıyor musunuz?(*)</option>
+                                                <option value="yes">Evet</option>
+                                                <option value="social">Sosyal</option>
+                                                <option value="no">Hayır</option>
+                                            </select>
+                                        </p>
+
+                                        <p class="dt-sc-one-half column first">
+                                            <input placeholder="Mesleğiniz*" id="job" name="job" type="text" required>
+                                        </p>
+
+                                        <p class="dt-sc-one-half column ">
+                                           Çalışma saatleriniz* <input type="time" name="time1" id="time1" required>
+                                            <input type="time" name="time2" id="time2" required>
+                                        </p>
+
+                                        <h3 class="border-title aligncenter"> <span>SPORTİF GEÇMİŞ</span></h3>
+
+                                        <p class="textarea">
+                                            <textarea rows="10" cols="40" placeholder="Sportif geçmişiniz" name="disorders" form="usrform" id="history"></textarea>
+                                        </p>
+
+
+                                        <p class="dt-sc-one-half column first ">
+                                            <input placeholder="Email*" id="email" name="email" type="email">
+                                        </p>
+
+
+                                         <p class="dt-sc-one-half column  ">
+                                            <input placeholder="Şifre*" name="password" type="password" >
+                                        </p>
+
+                                        <p class="dt-sc-one-half column first">
+                                            <input placeholder="Şifre (tekrar)*" name="password_confirm" type="password" >
+                                        </p>
+
+
+
+                                        <input class="dt-sc-button small" value="Kayıt Ol" type="submit">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dt-sc-hr-invisible-medium"></div>
+                        <div class="fullwidth-section">	  
+                            <div class="container">
+                                <div class="newsletter-container">                                            
+                                    <h2>Subscribe Newsletter for updates</h2>
+                                    <div class="dt-sc-one-half column first">
+                                        <p>Nam libero tempore, eu 
+volutpat enim diam eget metus cum soluta nobis est eligendi optio cumque
+ nihil impedit quo minus id quod maxime placeat facere.</p>
+                                    </div>
+                                    <div class="dt-sc-one-half column last">
+                                        <form name="frmsubscribe" class="newsletter-form" action="php/subscribe.php" method="post">
+                                            <input required="" placeholder="Enter Your Email ID" name="mc_email" type="email">
+                                            <input value="Submit" class="dt-sc-button" name="btnsubscribe" type="submit">
+                                        </form>
+                                        <div class="ajax_subscribe_msg"></div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>                                                               	
+            			<div class="dt-sc-hr-invisible-large"></div>
+                    </section>
+				</div>
+                <!-- main-content ends here -->
+            </div>
+            <!-- footer starts here -->
+            <footer id="footer">
+                    <div class="copyright">
+                        <div class="container">
+                            <p>&copy; Copyright - 2019</p>
+                        </div>
+                    </div>
+                </footer>
+                <!-- footer ends here -->
+            
+	</div><!-- **Inner Wrapper - End** -->
+</div><!-- **Wrapper - End** -->
+
+<!-- **jQuery** -->
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery-migrate.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.plugins.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.nicescroll.min.js')}}"></script>
+
+<script type="text/javascript" src="{{url_for('static',filename='js/pace.min.js')}}"></script>
+
+
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.fancybox.pack.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.ui.totop.min.js')}}"></script>
+
+<script type="text/javascript" src="{{url_for('static',filename='js/retina.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/twitter/jquery.tweet.min.js')}}"></script>
+
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery.validate.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/custom.js')}}"></script>
+</body>
+</html>

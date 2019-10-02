@@ -1,10 +1,14 @@
+from flask import Flask, flash, redirect, render_template, request, url_for
+
+
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, ValidationError, FileField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, ValidationError, FileField, SelectField, DateField, TimeField
 from wtforms.validators import DataRequired, EqualTo, Email
 from passlib.hash import bcrypt_sha256
 from app.services.user_manager import find_user_by_email
 from ..models.user import User
 from flask_login import current_user
+
 
 
 class RegisterForm(FlaskForm):
@@ -14,6 +18,29 @@ class RegisterForm(FlaskForm):
     password = PasswordField("Şifre",
                              validators=[DataRequired(), EqualTo("password_confirm", message="Passwords must match")])
     password_confirm = PasswordField("Şifre (tekrar)", validators=[DataRequired()])
+    # submit = SubmitField("Giriş Yap")
+
+
+class RegisterFormTest(FlaskForm):
+    first_name = StringField("Ad", validators=[DataRequired()])
+    last_name = StringField("Soyad", validators=[DataRequired()])
+    contact = StringField("İletişim", validators=[DataRequired()])
+    date = DateField("Date", validators=[DataRequired()])
+    identityNo = StringField("identityNo", validators=[DataRequired()])
+    goals = StringField("goals", validators=[DataRequired()])
+    alergy = StringField("alergy", validators=[DataRequired()])
+    job = StringField("job", validators=[DataRequired()])
+    time1 = TimeField("time1", validators=[DataRequired()])
+    time2 = TimeField("time2", validators=[DataRequired()])
+    #email = StringField("Email", validators=[DataRequired()])
+    #password = PasswordField("Şifre",
+                            # validators=[DataRequired(), EqualTo("password_confirm", message="Passwords must match")])
+    #password_confirm = PasswordField("Şifre (tekrar)", validators=[DataRequired()])
+
+
+
+
+
     # submit = SubmitField("Giriş Yap")
 
 

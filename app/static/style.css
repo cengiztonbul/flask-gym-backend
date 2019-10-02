@@ -716,12 +716,28 @@ textarea {
 }
 
 form .dt-sc-one-half textarea {
-    height: 123px;
+    height: 15px;
 }
 
 form .dt-sc-one-half p {
     margin-bottom: 15px;
 }
+
+/* DATE-START*/
+input[type="date"]::before {
+	content: attr(data-placeholder);
+	width: 100%;
+}
+
+/* hide our custom/fake placeholder text when in focus to show the default
+ * 'mm/dd/yyyy' value and when valid to show the users' date of birth value.
+ */
+input[type="date"]:focus::before,
+input[type="date"]:valid::before { display: none }
+
+
+/* DATE-END*/
+
 
 select {
     background: #ffffff;
