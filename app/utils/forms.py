@@ -64,6 +64,9 @@ class ExerciseForm(FlaskForm):
     triceps = BooleanField("triceps")
     # ----- #
 
+    def test(self):
+        return 0
+
     @property
     def body_parts(self):
         parts = []
